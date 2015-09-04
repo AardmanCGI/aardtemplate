@@ -1,0 +1,9 @@
+# Shotgun Pipeline Toolkit configuration file
+# this file was automatically created
+
+host: https://aardman.shotgunstudio.com
+api_script: Toolkit
+api_key: d25eb1cfb3516ff6575b8e7f563f8c383f22c381
+http_proxy: null
+
+# End of file.

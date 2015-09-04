@@ -1,0 +1,22 @@
+description: This environment controls what items should be shown on the menu in Shotgun
+  for publishes.
+engines:
+  tk-shotgun:
+    apps:
+      tk-shotgun-launchmaya: '@launch_maya'
+      tk-shotgun-launchnuke: '@launch_nuke'
+      tk-shotgun-launchnukex: '@launch_nukex'
+      tk-shotgun-launchphotoshop: '@launch_photoshop'
+      tk-shotgun-launchpublish:
+        deny_permissions: []
+        deny_platforms: []
+        hook_launch_publish: default
+        location: {name: tk-shotgun-launchpublish, type: app_store, version: v0.1.16}
+        viewer_extensions: [exr, dpx, cin]
+        viewer_path_linux: '@rv_linux'
+        viewer_path_mac: '@rv_mac'
+        viewer_path_windows: '@rv_windows'
+    debug_logging: false
+    location: {name: tk-shotgun, type: app_store, version: v0.5.1}
+frameworks: null
+includes: [./includes/app_launchers.yml, ./includes/paths.yml]

@@ -1,0 +1,119 @@
+# Copyright (c) 2013 Shotgun Software Inc.
+#
+# CONFIDENTIAL AND PROPRIETARY
+#
+# This work is provided "AS IS" and subject to the Shotgun Pipeline Toolkit
+# Source Code License included in this distribution package. See LICENSE.
+# By accessing, using, copying or modifying this work you indicate your
+# agreement to the Shotgun Pipeline Toolkit Source Code License. All rights
+# not expressly granted therein are reserved by Shotgun Software Inc.
+#
+
+#
+# This file defines paths to key applications for the project
+#
+
+#
+# maya
+#
+maya_windows: 'C:\mnt\software\tools\current\wrappers\maya.pyw'
+maya_mac: /Applications/Autodesk/maya2012/Maya.app
+maya_linux: maya
+
+#
+# mari
+#
+mari_windows: 'C:\mnt\software\tools\current\wrappers\mari.pyw'
+mari_mac: /Applications/MariVER/MariVER.app
+mari_linux: mari
+
+#
+# nuke
+#
+nuke_mac: /Applications/Nuke6.3v8/Nuke6.3v8.app
+nuke_windows: 'C:\mnt\software\tools\current\wrappers\nuke.pyw'
+nuke_linux: Nuke6.3
+
+
+#
+# motionbuilder
+#
+motionbuilder_windows: 'C:\Program Files\Autodesk\MotionBuilder 2013\bin\x64\motionbuilder.exe'
+
+
+#
+# 3dsmax 2012
+#
+3dsmax_windows: 'C:\Program Files\Autodesk\3ds Max 2012\3dsmax.exe'
+
+
+#
+# Houdini
+#
+houdini_windows: 'C:\Program Files\Side Effects Software\Houdini 12.5.427\bin\houdini.exe'
+houdini_linux: '/opt/hfs12.5.427/bin/houdini'
+
+
+#
+# photoshop CC
+#
+photoshop_mac: /Applications/Adobe Photoshop CC/Adobe Photoshop CC.app
+photoshop_win: 'C:\Program Files\Adobe\Adobe Photoshop CC (64 Bit)\Photoshop.exe'
+photoshop_extras:
+    mac_extension_manager_path: /Applications/Adobe Extension Manager CC/Adobe Extension Manager CC.app
+    mac_python_path: /usr/bin/python
+    windows_extension_manager_path: 'C:\Program Files (x86)\Adobe\Adobe Extension Manager CC\Adobe Extension Manager CC.exe'
+    windows_python_path: 'C:\Python27\python.exe'
+
+
+#
+# Hiero
+#
+hiero_mac: /Applications/Hiero1.7v2/Hiero1.7v2.app
+hiero_win: C:\Program Files\The Foundry\Hiero1.7v2\hiero.exe
+hiero_linux: /usr/local/Hiero1.7v2/bin/Hiero1.7v2
+
+#
+# Softimage
+#
+softimage_windows: C:\Program Files\Autodesk\Softimage 2013\Application\bin\XSI.bat
+softimage_linux: XSI
+
+#
+# z-brush
+#
+zbrush_windows: 'C:\mnt\software\apps\win32\pixologic\ZBrush 4R7 FL\ZBrush.exe'
+zbrush_icon_windows: 'C:\mnt\software\apps\icons\ZBrush_130_256x256.png'
+
+
+#
+# flash
+#
+flash_windows: 'C:\Program Files\Adobe\Adobe Flash CC\Flash.exe'
+
+#
+# After Effects
+#
+aftereffects_windows: 'C:\Program Files\Adobe\Adobe After Effects CC\Support Files\AfterFX.exe'
+
+#
+# Tweak RV
+#
+rv_mac: /Applications/RV64.app
+rv_windows: 'C:\mnt\software\tools\current\wrappers\rv.pyw'
+#rv_windows: 'C:\Python27\python.exe'
+rv_linux: rv
+rv_icon_windows: 'C:\mnt\software\apps\icons\rv_IDI_ICON1_48x48.png'
+
+
+#
+# PFTrack
+#
+pftrack_windows: 'C:\mnt\software\tools\current\wrappers\pftrack.pyw'
+pftrack_icon_windows: 'C:\mnt\software\apps\icons\PFTrack_101_48x48.png'
+
+#
+# TopoGun
+#
+topogun_windows: 'C:\mnt\software\tools\current\wrappers\topogun.pyw'
+topogun_icon_windows: 'C:\mnt\software\apps\icons\topogun_48x48.png'

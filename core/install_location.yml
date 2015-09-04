@@ -1,0 +1,10 @@
+# Shotgun Pipeline Toolkit configuration file
+# This file was automatically created by tank clone
+# This file reflects the paths in the pipeline configuration
+# entity which is associated with this location (SVNClone).
+
+Windows: 'C:\mnt\workspace\shotgunDev\aardtemplate_svn'
+Darwin: '/mnt/work/shotgunDev/aardtemplate_svn'
+Linux: '/mnt/work/shotgunDev/aardtemplate_svn'
+
+# End of file.
