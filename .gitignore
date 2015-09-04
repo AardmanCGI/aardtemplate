@@ -1,3 +1,6 @@
-install_location.yml
-pipeline_configuration.yml
+core/install_location.yml
+core/pipeline_configuration.yml
+core/interpreter_Darwin.cfg
+core/interpreter_Linux.cfg
+core/interpreter_Windows.cfg
 *.py[co]
