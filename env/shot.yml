@@ -46,7 +46,7 @@ engines:
         publish_type: Footage
         tank_type: Footage Sequence
         target_default_name: master
-        title_name: Image Publishing - Footage from Edit
+        title_name: Image Publishing - Footage
         version_number_padding: 3
       tk-multi-imagepublish-output:
         app_mode: gui
@@ -58,7 +58,7 @@ engines:
         publish_type: Output
         tank_type: Output Sequence
         target_default_name: master
-        title_name: Image Publishing - Output to Edit
+        title_name: Image Publishing - Output
         version_number_padding: 3
       tk-multi-imagepublish-render:
         app_mode: gui
