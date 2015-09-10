@@ -207,8 +207,8 @@ paths:
 
     # The location of published footage files
     shot_publish_footage_dir: '@shot_root/footage'
-    shot_publish_footage: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl'
-    shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{version}/{project}-{Sequence}-{Shot}_{name}-pl.{SEQ}.{ext}'
+    shot_publish_footage: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{}'
+    shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl.{SEQ}.{ext}'
     shot_publish_footage_mov: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{version}/{project}-{Sequence}-{Shot}_{name}-pl.mov'
 
 
@@ -343,7 +343,7 @@ paths:
     asset_pub_render_dir: '@asset_root/render/pub/[/{render_type}][/{Step}][/{name}][/{version}]'
 
     # The location of published footage files
-    asset_publish_footage: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl'
+    asset_publish_footage: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_v{}'
     asset_publish_footage_dir: '@asset_root/footage'
     asset_publish_footage_sequence: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
     asset_publish_footage_mov: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
@@ -474,7 +474,8 @@ strings:
     shot_render_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{render_type}"
     # And sequence names (works for both assets and shots)
     render_sequence_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_{render_type}_{render_version}.{SEQ}.{ext}"
-    footage_sequence_name: "{project}-{Sequence}-{Shot}_{name}-pl.{SEQ}.{ext}"
+    footage_asset_name: "{project}-{sg_asset_type}-{Asset}_{name}_pl_v{version}"
+    footage_sequence_name: "{project}-{Sequence}-{Shot}_{name}_pl_v{version}"
     
     # Footage folders:
     footage_folder_name:  "{project}-{Sequence}-{Shot}_{name}-pl"
