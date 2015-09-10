@@ -165,7 +165,7 @@ engines:
         app_mode: batch
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: default
         publish_type: default
@@ -177,7 +177,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Footage...
         publish_type: Footage
@@ -189,7 +189,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Output...
         publish_type: Output
@@ -201,7 +201,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Render...
         publish_type: Render
@@ -430,7 +430,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Footage...
         publish_type: Footage
@@ -442,7 +442,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Output...
         publish_type: Output
@@ -454,7 +454,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Render...
         publish_type: Render
@@ -656,7 +656,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Footage...
         publish_type: Footage
@@ -668,7 +668,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Output...
         publish_type: Output
@@ -680,7 +680,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Render...
         publish_type: Render
@@ -784,7 +784,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: footage
         publish_type: Footage
@@ -796,7 +796,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: output
         publish_type: Output
@@ -808,7 +808,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.2.3',
+        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: render
         publish_type: Render
