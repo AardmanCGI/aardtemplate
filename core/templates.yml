@@ -202,14 +202,14 @@ paths:
     shot_publish_area: '@shot_root/{Step}/pub'
 
     # The location of render/comp directories
-    shot_wip_render_dir: '@shot_root/render/wip[/{render_type}][/{Step}][/{name}][/{version}][/{layer1}][/{layer2}]'
-    shot_pub_render_dir: '@shot_root/render/pub[/{render_type}][/{Step}][/{name}][/{version}]'
+    shot_wip_render_dir: '@shot_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+    shot_pub_render_dir: '@shot_root/render/pub[/{render_type}][/{Step}][/{name}][/v{version}]'
 
     # The location of published footage files
     shot_publish_footage_dir: '@shot_root/footage'
     shot_publish_footage: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{}'
-    shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl.{SEQ}.{ext}'
-    shot_publish_footage_mov: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{version}/{project}-{Sequence}-{Shot}_{name}-pl.mov'
+    shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.{SEQ}.{ext}'
+    shot_publish_footage_mov: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.mov'
 
 
     #
@@ -242,11 +242,11 @@ paths:
     maya_shot_publish: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.mb'
 
     # The location of renders
-    maya_shot_render: '@shot_root/render/wip/rn/{Step}/{name}/{maya_rn_version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_rn_{maya_rn_version}'
+    maya_shot_render: '@shot_root/render/wip/rn/{Step}/{name}/v{maya_rn_version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_rn_v{maya_rn_version}'
 
     # The locations for playblasts from maya
-    maya_shot_playblast_wip_mov: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_{maya_pb_version}].mov'
-    maya_shot_playblast_pub_mov: '@shot_root/render/pub/pb/{Step}/{name}[/{maya_rn_version}]/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_{maya_pb_version}].mov'
+    maya_shot_playblast_wip_mov: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
+    maya_shot_playblast_pub_mov: '@shot_root/render/pub/pb/{Step}/{name}[/v{maya_rn_version}]/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
 
     # The location of exported obj files from maya
     maya_shot_publish_obj: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.obj'
@@ -271,14 +271,14 @@ paths:
     nuke_shot_publish: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.nk'
 
     # write node outputs
-    nuke_shot_render_mono_dpx:     '@shot_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.dpx'
-    nuke_shot_render_pub_mono_dpx: '@shot_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.dpx'
-    nuke_shot_render_mono_tif:     '@shot_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.tif'
-    nuke_shot_render_pub_mono_tif: '@shot_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.tif'
-    nuke_shot_render_jpeg:         '@shot_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.jpg'
-    nuke_shot_render_pub_jpeg:     '@shot_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.jpg'
-    nuke_shot_render_stereo:       '@shot_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.exr'
-    nuke_shot_render_pub_stereo:   '@shot_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.exr'
+    nuke_shot_render_mono_dpx:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_shot_render_pub_mono_dpx: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_shot_render_mono_tif:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_shot_render_pub_mono_tif: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_shot_render_jpeg:         '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_shot_render_pub_jpeg:     '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_shot_render_stereo:       '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
+    nuke_shot_render_pub_stereo:   '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
 
     # review output
     shot_quicktime_quick:          '@shot_root/{Step}/review/quickdaily/{project}-{Sequence}-{Shot}_{name}-{Step}_{iteration}.mov'
@@ -339,15 +339,25 @@ paths:
     asset_publish_area: '@asset_root/{Step}/pub'
 
     # The location of render/comp directories
-    asset_wip_render_dir: '@asset_root/render/wip/[/{render_type}][/{Step}][/{name}][/{version}][/{layer1}][/{layer2}]'
-    asset_pub_render_dir: '@asset_root/render/pub/[/{render_type}][/{Step}][/{name}][/{version}]'
+    asset_wip_render_dir: '@asset_root/render/wip/[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+    asset_pub_render_dir: '@asset_root/render/pub/[/{render_type}][/{Step}][/{name}][/v{version}]'
 
     # The location of published footage files
     asset_publish_footage: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_v{}'
     asset_publish_footage_dir: '@asset_root/footage'
-    asset_publish_footage_sequence: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
-    asset_publish_footage_mov: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
+    asset_publish_footage_sequence: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
+    asset_publish_footage_mov: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
 
+    # The location of every publishable file (excluding footage)
+    # Used in imagepublish util_shotgun.py (get_context_info_from_path) to determine context
+    # An asset wip render is outputted to here. Same as asset_wip_render_dir
+    #full_asset_wip_render_dir: '@asset_root/render/wip/{render_type}/{Step}/{name}/v{version}'
+    # An asset pub render is outputted to here. Same as asset_pub_render_dir
+    #full_asset_pub_render_dir: '@asset_root/render/pub/{render_type}/{Step}/{name}/v{version}'
+    # A shot wip render is outputted to here. Same as shot_wip_render_dir
+    #full_shot_wip_render_dir: '@shot_root/render/wip/{render_type}/{Step}/{name}[/v{version}]'
+    # A shot pub render is outputted to here. Same as shot_pub_render_dir
+    #full_shot_pub_render_dir: '@shot_root/render/pub/{render_type}/{Step}/{name}[/v{version}]'
 
     #
     # Photoshop
@@ -360,9 +370,9 @@ paths:
     photoshop_asset_snapshot: '@asset_root/{Step}/wip/{name}/snapshots/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}-{timestamp}.psd'
 
     # The location of published files
-    photoshop_asset_publish: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.psd'
-    photoshop_asset_publish_tif: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.tif'
-    photoshop_asset_publish_layer: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{layer}.tif'
+    photoshop_asset_publish: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.psd'
+    photoshop_asset_publish_tif: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.tif'
+    photoshop_asset_publish_layer: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{layer}.tif'
 
 
     #
@@ -379,8 +389,8 @@ paths:
     maya_asset_publish: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}.mb'
 
     # The location of playblast render files
-    maya_asset_playblast_wip_mov: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_{maya_pb_version}].mov'
-    maya_asset_playblast_pub_mov: '@asset_root/render/pub/pb/{Step}/{name}[/{maya_rn_version}]/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_{maya_pb_version}].mov'
+    maya_asset_playblast_wip_mov: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
+    maya_asset_playblast_pub_mov: '@asset_root/render/pub/pb/{Step}/{name}[/v{maya_rn_version}]/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
 
     # The location of exported obj files from maya
     maya_asset_publish_obj: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.obj'
@@ -396,14 +406,14 @@ paths:
     #
 
     # write node outputs
-    nuke_asset_render_mono_dpx:     '@asset_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.dpx'
-    nuke_asset_render_pub_mono_dpx: '@asset_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.dpx'
-    nuke_asset_render_mono_tif:     '@asset_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.tif'
-    nuke_asset_render_pub_mono_tif: '@asset_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.tif'
-    nuke_asset_render_jpeg:         '@asset_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.jpg'
-    nuke_asset_render_pub_jpeg:     '@asset_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.jpg'
-    nuke_asset_render_stereo:       '@asset_root/render/wip/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.exr'
-    nuke_asset_render_pub_stereo:   '@asset_root/render/pub/cp/{Step}/{name}/{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{output}]_cp_{nuke_cp_version}.{SEQ}.exr'
+    nuke_asset_render_mono_dpx:     '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_asset_render_pub_mono_dpx: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_asset_render_mono_tif:     '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_asset_render_pub_mono_tif: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_asset_render_jpeg:         '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_asset_render_pub_jpeg:     '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_asset_render_stereo:       '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
+    nuke_asset_render_pub_stereo:   '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
 
     # review output
     nuke_asset_render_movie: '@asset_root/{Step}/review/{sg_asset_type}-{Asset}_{name}-{Step}_{output}_{version}.mov'
@@ -473,7 +483,7 @@ strings:
     asset_render_name: "{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_{render_type}"
     shot_render_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{render_type}"
     # And sequence names (works for both assets and shots)
-    render_sequence_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_{render_type}_{render_version}.{SEQ}.{ext}"
+    render_sequence_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_{render_type}_v{render_version}.{SEQ}.{ext}"
     footage_asset_name: "{project}-{sg_asset_type}-{Asset}_{name}_pl_v{version}"
     footage_sequence_name: "{project}-{Sequence}-{Shot}_{name}_pl_v{version}"
     
