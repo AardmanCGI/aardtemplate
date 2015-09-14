@@ -207,7 +207,7 @@ paths:
 
     # The location of published footage files
     shot_publish_footage_dir: '@shot_root/footage'
-    shot_publish_footage: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{}'
+    shot_publish_footage: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_[v{version}]'
     shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.{SEQ}.{ext}'
     shot_publish_footage_mov: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.mov'
 
@@ -339,11 +339,11 @@ paths:
     asset_publish_area: '@asset_root/{Step}/pub'
 
     # The location of render/comp directories
-    asset_wip_render_dir: '@asset_root/render/wip/[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
-    asset_pub_render_dir: '@asset_root/render/pub/[/{render_type}][/{Step}][/{name}][/v{version}]'
+    asset_wip_render_dir: '@asset_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+    asset_pub_render_dir: '@asset_root/render/pub[/{render_type}][/{Step}][/{name}][/v{version}]'
 
     # The location of published footage files
-    asset_publish_footage: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_v{}'
+    asset_publish_footage: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_[v{version}]'
     asset_publish_footage_dir: '@asset_root/footage'
     asset_publish_footage_sequence: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
     asset_publish_footage_mov: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
