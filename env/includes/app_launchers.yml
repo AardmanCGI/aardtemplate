@@ -226,7 +226,7 @@ launch_rv:
 launch_screeningroom:
   enable_rv_mode: true
   enable_web_mode: true
-  location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-screeningroom\v.1.10.1',
+  location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-screeningroom\v.1.10.1',
     type: dev}
   rv_path_linux: '@rv_linux'
   rv_path_mac: '@rv_mac'
@@ -234,7 +234,7 @@ launch_screeningroom:
 launch_shotgun_screeningroom:
   deny_permissions: []
   deny_platforms: []
-  location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-shotgun-launchscreeningroom\v0.1.7.1',
+  location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-shotgun-launchscreeningroom\v0.1.7.1',
     type: dev}
   rv_path_linux: '@rv_linux'
   rv_path_mac: '@rv_mac'

@@ -40,7 +40,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
+        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: footage
         publish_type: footage
@@ -52,7 +52,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
+        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: output
         publish_type: output
@@ -64,7 +64,7 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
+        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: render
         publish_type: render
