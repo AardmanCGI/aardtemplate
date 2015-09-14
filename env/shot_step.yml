@@ -90,7 +90,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Footage...
-        publish_type: Footage
+        publish_type: footage
         tank_type: Footage Sequence
         target_default_name: master
         title_name: Image Publishing - Footage
@@ -102,7 +102,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Output...
-        publish_type: Output
+        publish_type: output
         tank_type: Output Sequence
         target_default_name: master
         title_name: Image Publishing - Output
@@ -114,7 +114,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Render...
-        publish_type: Render
+        publish_type: render
         tank_type: Render Sequence
         target_default_name: master
         title_name: Image Publishing - Render
@@ -359,7 +359,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Footage...
-        publish_type: Footage
+        publish_type: footage
         tank_type: Footage Sequence
         target_default_name: master
         title_name: Image Publishing - Footage
@@ -371,7 +371,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Output...
-        publish_type: Output
+        publish_type: output
         tank_type: Output Sequence
         target_default_name: master
         title_name: Image Publishing - Output
@@ -383,7 +383,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Render...
-        publish_type: Render
+        publish_type: render
         tank_type: Render Sequence
         target_default_name: master
         title_name: Image Publishing - Render
@@ -597,7 +597,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Footage...
-        publish_type: Footage
+        publish_type: footage
         tank_type: Footage Sequence
         target_default_name: master
         title_name: Image Publishing - Footage
@@ -609,7 +609,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Output...
-        publish_type: Output
+        publish_type: output
         tank_type: Output Sequence
         target_default_name: master
         title_name: Image Publishing - Output
@@ -621,7 +621,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: Image Publish Render...
-        publish_type: Render
+        publish_type: render
         tank_type: Render Sequence
         target_default_name: master
         title_name: Image Publishing - Render
@@ -734,7 +734,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: footage
-        publish_type: Footage
+        publish_type: footage
         tank_type: Footage Sequence
         target_default_name: master
         title_name: Image Publishing - Footage
@@ -746,7 +746,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: output
-        publish_type: Output
+        publish_type: output
         tank_type: Output Sequence
         target_default_name: master
         title_name: Image Publishing - Output
@@ -758,7 +758,7 @@ engines:
         location: {path: 'C:\mnt\workspace\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
           type: dev}
         menu_name: render
-        publish_type: Render
+        publish_type: render
         tank_type: Render Sequence
         target_default_name: master
         title_name: Image Publishing - Render
