@@ -278,7 +278,7 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-syncsettings.git', type: git,
           version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
@@ -491,7 +491,7 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-syncsettings.git', type: git,
           version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
@@ -693,7 +693,7 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-syncsettings.git', type: git,
           version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
