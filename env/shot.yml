@@ -40,8 +40,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: footage
         publish_type: footage
         tank_type: Footage Sequence
@@ -52,8 +52,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: output
         publish_type: output
         tank_type: Output Sequence
@@ -64,8 +64,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: render
         publish_type: render
         tank_type: Render Sequence

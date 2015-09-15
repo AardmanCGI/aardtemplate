@@ -75,8 +75,8 @@ engines:
         app_mode: batch
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: default
         publish_type: default
         tank_type: default
@@ -87,8 +87,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -99,8 +99,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Output...
         publish_type: output
         tank_type: Output Sequence
@@ -111,8 +111,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Render...
         publish_type: render
         tank_type: Render Sequence
@@ -253,8 +253,8 @@ engines:
         hook_pre_submit: default
         hook_scan_scene: default
         hook_submit: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-renderfarm\v0.1.6',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-renderfarm.git', type: git
+          version: v0.1.6}
         outputs:
         - {description: Layers to include in render to farm, display_group: Layers,
           display_name: Render layers, icon: icons/publish_maya_cache.png, name: render_layer,
@@ -278,8 +278,8 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-syncsettings\v0.1.0',
-          type: dev}
+        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+          version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
         sg_xres_field: sg_resolution_x
@@ -356,8 +356,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -368,8 +368,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Output...
         publish_type: output
         tank_type: Output Sequence
@@ -380,8 +380,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Render...
         publish_type: render
         tank_type: Render Sequence
@@ -459,8 +459,8 @@ engines:
         hook_pre_submit: default
         hook_scan_scene: default
         hook_submit: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-renderfarm\v0.1.6',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-renderfarm.git', type: git
+          version: v0.1.6}
         outputs:
         - {description: Send Nuke renders to the farm, display_group: Shotgun Write
             Nodes, display_name: Nuke Renders, icon: icons/publish_nuke_writenode.png,
@@ -491,8 +491,8 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-syncsettings\v0.1.0',
-          type: dev}
+        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+          version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
         sg_xres_field: sg_resolution_x
@@ -594,8 +594,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Image Publish Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -606,9 +606,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
-        menu_name: Image Publish Output...
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         publish_type: output
         tank_type: Output Sequence
         target_default_name: master
@@ -618,8 +617,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: Image Publish Render...
         publish_type: render
         tank_type: Render Sequence
@@ -694,8 +693,8 @@ engines:
       tk-multi-syncsettings:
         hook_scan_scene: default
         hook_update: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-syncsettings\v0.1.0',
-          type: dev}
+        location: {path:' https://github.com/AardmanCGI/tk-multi-syncsettings.git', type:git,
+          version: v0.1.0}
         sg_framerate_field: sg_framerate
         sg_linearunit_field: sg_linear_unit
         sg_xres_field: sg_resolution_x
@@ -731,8 +730,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: footage
         publish_type: footage
         tank_type: Footage Sequence
@@ -743,8 +742,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: output
         publish_type: output
         tank_type: Output Sequence
@@ -755,8 +754,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'C:\mnt\software\shotgun\studio\install\apps\manual\tk-multi-imagepublish\v0.4.0',
-          type: dev}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
+          version: v0.4.0}
         menu_name: render
         publish_type: render
         tank_type: Render Sequence
