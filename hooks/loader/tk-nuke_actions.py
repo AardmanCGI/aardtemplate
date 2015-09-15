@@ -47,26 +47,42 @@ class SequenceChooser(QDialog):
         recursive function to look for sequences in folders
         and add them to the list
         '''
+        basePath = os.path.join(rootPath,dir)
+        content = os.listdir(basePath)
 
-        content = os.listdir(os.path.join(rootPath,dir))
+        # split content into files and folders
+        files = []
+        folders = []
+        for item in content:
+            if os.path.isdir(os.path.join(basePath,item)):
+                folders.append(item)
+            if os.path.isfile(os.path.join(basePath,item)):
+                files.append(item)
 
-        seqs = cgkSeq.buildSequences(content)
+        # use cgkit to turn the files into file sequence objects
+        seqs = cgkSeq.buildSequences(files)
 
-        for seq in seqs:
-            name, range = seq.sequenceName()
+        # loop over combined sequences and folders
+        for seq in seqs + folders:
+            try:
+                # proccess the sequence objects
+                name, range = seq.sequenceName()
 
-            # attempt to handle single frame case
-            if range == []:
-                range = ['1-1'] #TMP - should this be actual frame number??
+                # attempt to handle single frame case
+                if range == []:
+                    range = ['1-1'] #TMP - should this be actual frame number??
 
-            fullpath = os.path.join(rootPath,dir,name)
-            # recurse if directory
-            if os.path.isdir(fullpath):
-                self.scanDir(rootPath,os.path.join(dir,name))
-            else:
                 # we must have found a sequence, add it to the list
                 item = "%s %s" % (os.path.join(dir,name),range)
                 self.selector.addItem(item)
+            except:
+                # assume that if the sequence processing has failed we must be
+                # dealing with a folder
+                fullpath = os.path.join(basePath,seq)
+                print fullpath
+                # recurse if directory, looking for sequences
+                if os.path.isdir(fullpath):
+                    self.scanDir(rootPath,os.path.join(dir,seq))
 
     # see what the user selected
     def query(self):
@@ -173,9 +189,13 @@ class CustomActions(HookBaseClass):
                     filePath = filePath.replace('@','#')
                     seq = os.path.join( path, filePath )
                     seq = seq.replace('\\','/') #ensure no back slashes in path
-                    
+
                     # get the layer name from the filepath counting from the end
-                    renderLayer = filePath.split('\\')[-2]
+                    tokens = filePath.split('\\')
+                    renderLayer = ''
+                    if len(tokens) > 1:
+                        renderLayer = filePath.split('\\')[-2]
+
 
                     # get frame range
                     lowest = 999999;
