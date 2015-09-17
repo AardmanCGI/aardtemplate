@@ -124,7 +124,7 @@ engines:
         - {description: Publish flattened channels, display_group: Texture Channels,
           display_name: Channels, icon: icons/mari_channel_publish.png, name: channel,
           publish_template: asset_mari_texture_tif, required: false, scene_item_type: channel,
-          selected: false, tank_type: UDIM Image}
+          selected: true, tank_type: UDIM Image}
         - {description: Publish individual layers for channels, display_group: Texture
             Channel Layers, display_name: Layers, icon: icons/mari_layer_publish.png,
           name: layer, publish_template: asset_mari_texture_tif, required: false,
@@ -258,9 +258,9 @@ engines:
         hook_secondary_pre_publish: secondary_pre_publish_publishSET
         hook_secondary_publish: secondary_publish_publishSET
         hook_thumbnail: default
-        primary_description: Publish and version up the current Maya scene 
-        primary_display_name: Maya Publish 
-        primary_icon: icons/publish_maya_main.png         
+        primary_description: Publish and version up the current Maya scene
+        primary_display_name: Maya Publish
+        primary_icon: icons/publish_maya_main.png
         location: {name: tk-multi-publish, type: app_store, version: v0.6.10}
         primary_default_thumbnail: icons/thumbnail_maya.png
         primary_publish_template: maya_asset_publish
