@@ -208,8 +208,8 @@ paths:
     # The location of published footage files
     shot_publish_footage_dir: '@shot_root/footage'
     shot_publish_footage: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_[v{version}]'
-    shot_publish_footage_sequence: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.{SEQ}.{ext}'
-    shot_publish_footage_mov: '@shot_root/footage/{project}-{Sequence}-{Shot}_{name}-pl/{project}-{Sequence}-{Shot}_{name}-pl_v{version}.mov'
+    shot_publish_footage_sequence: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.{SEQ}.{ext}'
+    shot_publish_footage_mov: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.mov'
 
 
     #
@@ -486,7 +486,7 @@ strings:
     render_sequence_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_{render_type}_v{render_version}.{SEQ}.{ext}"
     footage_asset_name: "{project}-{sg_asset_type}-{Asset}_{name}_pl_v{version}"
     footage_sequence_name: "{project}-{Sequence}-{Shot}_{name}_pl_v{version}"
-    
+
     # Footage folders:
     footage_folder_name:  "{project}-{Sequence}-{Shot}_{name}-pl"
 
