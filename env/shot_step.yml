@@ -76,7 +76,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: default
         publish_type: default
         tank_type: default
@@ -88,7 +88,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -100,7 +100,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Output...
         publish_type: output
         tank_type: Output Sequence
@@ -112,7 +112,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Render...
         publish_type: render
         tank_type: Render Sequence
@@ -357,7 +357,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -369,7 +369,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Output...
         publish_type: output
         tank_type: Output Sequence
@@ -381,7 +381,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Render...
         publish_type: render
         tank_type: Render Sequence
@@ -595,7 +595,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Image Publish Footage...
         publish_type: footage
         tank_type: Footage Sequence
@@ -607,7 +607,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         publish_type: output
         tank_type: Output Sequence
         target_default_name: master
@@ -618,7 +618,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: Image Publish Render...
         publish_type: render
         tank_type: Render Sequence
@@ -731,7 +731,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: footage
         publish_type: footage
         tank_type: Footage Sequence
@@ -743,7 +743,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: output
         publish_type: output
         tank_type: Output Sequence
@@ -755,7 +755,7 @@ engines:
         hook_publish: default
         hook_scan_scene: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.1}
+          version: v0.4.4}
         menu_name: render
         publish_type: render
         tank_type: Render Sequence
@@ -771,9 +771,9 @@ engines:
     debug_logging: false
     location: {name: tk-shell, type: app_store, version: v0.4.1}
 frameworks:
-  tk-framework-aapublish_v0.0.1:
+  tk-framework-aapublish_v0.0.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.0.1}
+      version: v0.0.3}
     publish_hook: default
   tk-framework-qtwidgets_v2.x.x:
     location: {name: tk-framework-qtwidgets, type: app_store, version: v2.0.6}
