@@ -308,7 +308,7 @@ frameworks:
   tk-framework-aapublish_v0.0.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
       version: v0.0.3}
-    publish_hook: default
+    hook_publish: default
   tk-framework-adminui_v0.x.x:
     location: {name: tk-framework-adminui, type: app_store, version: v0.1.2}
   tk-framework-login_v1.x.x:

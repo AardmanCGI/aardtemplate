@@ -828,7 +828,7 @@ frameworks:
   tk-framework-aapublish_v0.0.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
       version: v0.0.3}
-    publish_hook: default
+    hook_publish: default
   tk-framework-qtwidgets_v2.x.x:
     location: {name: tk-framework-qtwidgets, type: app_store, version: v2.0.6}
   tk-framework-shotgunutils_v1.x.x:
