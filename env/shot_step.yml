@@ -324,7 +324,7 @@ engines:
         hook_copy_file: '{self}/copy_file.py'
         hook_filter_publishes: '{self}/filter_publishes.py'
         hook_filter_work_files: '{self}/filter_work_files.py'
-        hook_scene_operation: '{self}/scene_operation_tk-maya.py'
+        hook_scene_operation: '{config}/workfiles2/scene_operation_tk-maya.py'
         launch_at_startup: false
         location: {name: tk-multi-workfiles2, type: app_store, version: v0.7.9}
         my_tasks_extra_display_fields: []
