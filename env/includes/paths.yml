@@ -36,25 +36,6 @@ nuke_linux: Nuke6.3
 
 
 #
-# motionbuilder
-#
-motionbuilder_windows: 'C:\Program Files\Autodesk\MotionBuilder 2013\bin\x64\motionbuilder.exe'
-
-
-#
-# 3dsmax 2012
-#
-3dsmax_windows: 'C:\Program Files\Autodesk\3ds Max 2012\3dsmax.exe'
-
-
-#
-# Houdini
-#
-houdini_windows: 'C:\Program Files\Side Effects Software\Houdini 12.5.427\bin\houdini.exe'
-houdini_linux: '/opt/hfs12.5.427/bin/houdini'
-
-
-#
 # photoshop CC
 #
 photoshop_mac: /Applications/Adobe Photoshop CC/Adobe Photoshop CC.app
@@ -65,19 +46,6 @@ photoshop_extras:
     windows_extension_manager_path: 'C:\Program Files (x86)\Adobe\Adobe Extension Manager CC\Adobe Extension Manager CC.exe'
     windows_python_path: 'C:\Python27\python.exe'
 
-
-#
-# Hiero
-#
-hiero_mac: /Applications/Hiero1.7v2/Hiero1.7v2.app
-hiero_win: C:\Program Files\The Foundry\Hiero1.7v2\hiero.exe
-hiero_linux: /usr/local/Hiero1.7v2/bin/Hiero1.7v2
-
-#
-# Softimage
-#
-softimage_windows: C:\Program Files\Autodesk\Softimage 2013\Application\bin\XSI.bat
-softimage_linux: XSI
 
 #
 # z-brush

@@ -1,20 +1,4 @@
 includes: [./paths.yml, 'sequences/{Sequence}/{Shot}/sgtk_overrides.yml', 'assets/{sg_asset_type}/{Asset}/sgtk_overrides.yml']
-launch_3dsmax:
-  defer_keyword: ''
-  engine: tk-3dsmax
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: before_launch
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.5.4}
-  mac_args: ''
-  mac_path: ''
-  menu_name: Launch 3DSMax
-  versions: []
-  windows_args: ''
-  windows_path: '@3dsmax_windows'
 launch_aftereffects:
   defer_keyword: ''
   engine: ''
@@ -47,38 +31,6 @@ launch_flash:
   versions: []
   windows_args: ''
   windows_path: '@flash_windows'
-launch_hiero:
-  defer_keyword: ''
-  engine: tk-hiero
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: before_launch
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: '@hiero_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.5.4}
-  mac_args: ''
-  mac_path: '@hiero_mac'
-  menu_name: Launch Hiero
-  versions: []
-  windows_args: ''
-  windows_path: '@hiero_win'
-launch_houdini:
-  defer_keyword: ''
-  engine: tk-houdini
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: before_launch
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: '@houdini_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
-  mac_args: ''
-  mac_path: ''
-  menu_name: Launch Houdini
-  versions: []
-  windows_args: ''
-  windows_path: '@houdini_windows'
 launch_mari:
   defer_keyword: ''
   engine: tk-mari
@@ -111,22 +63,6 @@ launch_maya:
   versions: []
   windows_args: ''
   windows_path: '@maya_windows'
-launch_motionbuilder:
-  defer_keyword: ''
-  engine: tk-motionbuilder
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: before_launch
-  icon: '{target_engine}/icon_256.png'
-  linux_args: ''
-  linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.5.4}
-  mac_args: ''
-  mac_path: ''
-  menu_name: Launch MotionBuilder
-  versions: []
-  windows_args: ''
-  windows_path: '@motionbuilder_windows'
 launch_nuke:
   defer_keyword: ''
   engine: tk-nuke
@@ -239,19 +175,6 @@ launch_shotgun_screeningroom:
   rv_path_linux: '@rv_linux'
   rv_path_mac: '@rv_mac'
   rv_path_windows: '@rv_windows'
-launch_softimage:
-  engine: tk-softimage
-  extra: {}
-  hook_app_launch: default
-  hook_before_app_launch: default
-  linux_args: ''
-  linux_path: '@softimage_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.2.16}
-  mac_args: ''
-  mac_path: ''
-  menu_name: Launch Softimage
-  windows_args: ''
-  windows_path: '@softimage_windows'
 launch_topogun:
   defer_keyword: ''
   engine: ''
