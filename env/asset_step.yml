@@ -241,6 +241,13 @@ engines:
           - [task_assignees, is, '{context.user}']
           - [project, is, '{context.project}']
           hierarchy: [entity, content]
+        - caption: Library
+          entity_type: Asset
+          filters:
+          - - project
+            - is
+            - {id: 398, type: Project}
+          hierarchy: [sg_asset_type, code]          
         filter_publishes_hook: '{self}/filter_publishes.py'
         location: {name: tk-multi-loader2, type: app_store, version: v1.7.1}
         menu_name: Load
