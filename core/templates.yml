@@ -82,10 +82,6 @@ keys:
         type: str
         filter_by: alphanumeric
 
-    maya_file_extension:
-        type: str
-        choices: ["ma", "mb"]
-
     render_type:
         type: str
         choices: ["rn", "pb", "cp"]
@@ -172,6 +168,7 @@ paths:
     # Shot level paths
     #
 
+
     #
     # Common
     #
@@ -184,7 +181,7 @@ paths:
     shot_publish_area:
         definition: '@shot_root/{Step}/pub'
         root_name: 'primary'
-    # The location of render/comp directories
+    # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     shot_wip_render_dir:
         definition: '@shot_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
         root_name: 'primary'
@@ -246,17 +243,9 @@ paths:
         definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.mb'
         root_name: 'primary'
 
-    # The location of renders
-    maya_shot_render:
-        definition: '@shot_root/render/wip/rn/{Step}/{name}/v{maya_rn_version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_rn_v{maya_rn_version}'
-        root_name: 'primary'
-
     # The locations for playblasts from maya
     maya_shot_playblast_wip_mov:
         definition: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
-        root_name: 'primary'
-    maya_shot_playblast_pub_mov:
-        definition: '@shot_root/render/pub/pb/{Step}/{name}[/v{maya_rn_version}]/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
         root_name: 'primary'
 
     # The location of exported obj files from maya
@@ -324,17 +313,9 @@ paths:
         definition: '@shot_root/{Step}/review/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{nuke.output}.mov'
         root_name: 'primary'
 
-    #
-    # Mari
-    #
-
-    shot_mari_texture_tif:
-        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{channel}[_{layer}].{UDIM}.tif'
-        root_name: 'primary'
-
-
     ##########################################################################################
     # Asset pipeline
+    #
 
     #
     # Common
@@ -349,7 +330,7 @@ paths:
     asset_publish_area:
         definition: '@asset_root/{Step}/pub'
         root_name: 'primary'
-    # The location of render/comp directories
+    # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     asset_wip_render_dir:
         definition: '@asset_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
         root_name: 'primary'
@@ -371,16 +352,6 @@ paths:
         definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
         root_name: 'primary'
 
-    # The location of every publishable file (excluding footage)
-    # Used in imagepublish util_shotgun.py (get_context_info_from_path) to determine context
-    # An asset wip render is outputted to here. Same as asset_wip_render_dir
-    #full_asset_wip_render_dir: '@asset_root/render/wip/{render_type}/{Step}/{name}/v{version}'
-    # An asset pub render is outputted to here. Same as asset_pub_render_dir
-    #full_asset_pub_render_dir: '@asset_root/render/pub/{render_type}/{Step}/{name}/v{version}'
-    # A shot wip render is outputted to here. Same as shot_wip_render_dir
-    #full_shot_wip_render_dir: '@shot_root/render/wip/{render_type}/{Step}/{name}[/v{version}]'
-    # A shot pub render is outputted to here. Same as shot_pub_render_dir
-    #full_shot_pub_render_dir: '@shot_root/render/pub/{render_type}/{Step}/{name}[/v{version}]'
 
     #
     # Photoshop
@@ -433,9 +404,6 @@ paths:
     maya_asset_playblast_wip_mov:
         definition: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
         root_name: 'primary'
-    maya_asset_playblast_pub_mov:
-        definition: '@asset_root/render/pub/pb/{Step}/{name}[/v{maya_rn_version}]/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
-        root_name: 'primary'
     # The location of exported obj files from maya
     maya_asset_publish_obj:
         definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.obj'
@@ -459,34 +427,12 @@ paths:
     nuke_asset_render_pub_mono_dpx:
         definition: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
         root_name: 'primary'
-    nuke_asset_render_mono_tif:
-        definition: '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-        root_name: 'primary'
-    nuke_asset_render_pub_mono_tif:
-        definition: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-        root_name: 'primary'
-    nuke_asset_render_jpeg:
-        definition: '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-        root_name: 'primary'
-    nuke_asset_render_pub_jpeg:
-        definition: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-        root_name: 'primary'
-    nuke_asset_render_stereo:
-        definition: '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
-        root_name: 'primary'
-    nuke_asset_render_pub_stereo:
-        definition: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{eye}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
-        root_name: 'primary'
-
     # review output
     nuke_asset_render_movie:
         definition: '@asset_root/{Step}/review/{sg_asset_type}-{Asset}_{name}-{Step}_{nuke.output}_{version}.mov'
         root_name: 'primary'
     asset_quicktime_quick:
         definition: '@asset_root/{Step}/review/quickdaily/{sg_asset_type}-{Asset}_{name}-{Step}_{iteration}.mov'
-        root_name: 'primary'
-    nuke_asset_render_review_seq:
-        definition: '@asset_root/{Step}/review/{name}/{version}/{nuke.output}/{sg_asset_type}-{Asset}_{name}-{Step}_{nuke.output}_{version}.{iteration}.{SEQ}.exr'
         root_name: 'primary'
     # The location of WIP script files
     nuke_asset_work:
@@ -522,13 +468,9 @@ strings:
     # define how new Mari projects should be named
     mari_asset_project_name: "{mari.project_name} - Asset {asset_name}, {task_name}"
 
-    # The name on render files
+    # The name on render files (Used by renderfarm presubmit hooks)
     asset_render_name: "{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_{render_type}"
     shot_render_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{render_type}"
-    # And sequence names (works for both assets and shots)
-    render_sequence_name:  "{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_{render_type}_v{render_version}.{SEQ}.{ext}"
+    # And sequence names (works for both assets and shots) (Used by aapublish/utils/shotgun.py)
     footage_asset_name: "{project}-{sg_asset_type}-{Asset}_{name}_pl_v{version}"
     footage_sequence_name: "{project}-{Sequence}-{Shot}_{name}_pl_v{version}"
-
-    # Footage folders:
-    footage_folder_name:  "{project}-{Sequence}-{Shot}_{name}-pl"
