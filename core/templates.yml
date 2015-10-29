@@ -243,7 +243,7 @@ paths:
         definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.mb'
         root_name: 'primary'
 
-    # The locations for playblasts from maya
+    # The locations for playblasts from maya (Used by aaPlayblast)
     maya_shot_playblast_wip_mov:
         definition: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
         root_name: 'primary'
@@ -400,7 +400,7 @@ paths:
     maya_asset_publish:
         definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}.mb'
         root_name: 'primary'
-    # The location of playblast render files
+    # The location of playblast render files (Used by aaPlayblast)
     maya_asset_playblast_wip_mov:
         definition: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
         root_name: 'primary'
