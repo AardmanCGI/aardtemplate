@@ -183,10 +183,10 @@ paths:
         root_name: 'primary'
     # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     shot_wip_render_dir:
-        definition: '@shot_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+        definition: '@shot_root/render/wip/{render_type}[/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
         root_name: 'primary'
     shot_pub_render_dir:
-        definition: '@shot_root/render/pub[/{render_type}][/{Step}][/{name}][/v{version}]'
+        definition: '@shot_root/render/pub/{render_type}[/{Step}][/{name}][/v{version}]'
         root_name: 'primary'
     # The location of published footage files
     shot_publish_footage_dir:
@@ -332,10 +332,10 @@ paths:
         root_name: 'primary'
     # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     asset_wip_render_dir:
-        definition: '@asset_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+        definition: '@asset_root/render/wip/{render_type}[/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
         root_name: 'primary'
     asset_pub_render_dir:
-        definition: '@asset_root/render/pub[/{render_type}][/{Step}][/{name}][/v{version}]'
+        definition: '@asset_root/render/pub/{render_type}[/{Step}][/{name}]/v{version}'
         root_name: 'primary'
 
     # The location of published footage files
