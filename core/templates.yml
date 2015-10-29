@@ -103,23 +103,10 @@ keys:
         type: int
         format_spec: "03"
 
-    maya_rn_version:
-        type: int
-        format_spec: "03"
-
     nuke_cp_version:
         type: int
         format_spec: "03"
         default: 0
-
-    # rn or cp version
-    render_version:
-        type: int
-        format_spec: "03"
-
-    # maya publish keys
-    cache_name:
-        type: str
 
     # These are used for the Mari UDIM pipeline:
     UDIM:
