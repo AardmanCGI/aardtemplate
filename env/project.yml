@@ -311,11 +311,11 @@ frameworks:
     hook_publish: default
   tk-framework-aapublish_v0.1.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.1.1}
+      version: v0.1.2}
     hook_publish: default
   tk-framework-aapublish_v0.2.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.2.0}
+      version: v0.2.1}
     hook_publish: default
   tk-framework-adminui_v0.x.x:
     location: {name: tk-framework-adminui, type: app_store, version: v0.1.2}
