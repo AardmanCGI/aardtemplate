@@ -834,15 +834,15 @@ engines:
 frameworks:
   tk-framework-aapublish_v0.0.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.0.3}
+      version: v0.0.4}
     hook_publish: default
   tk-framework-aapublish_v0.1.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.1.2}
+      version: v0.1.3}
     hook_publish: default
   tk-framework-aapublish_v0.2.x:
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.2.1}
+      version: v0.2.2}
     hook_publish: default
   tk-framework-qtwidgets_v2.x.x:
     location: {name: tk-framework-qtwidgets, type: app_store, version: v2.0.6}
