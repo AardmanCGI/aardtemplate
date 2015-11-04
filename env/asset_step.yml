@@ -752,7 +752,6 @@ engines:
         title_name: Image Publishing - Render
         version_number_padding: 3
       tk-multi-screeningroom: '@launch_screeningroom'
-      tk-shotgun-launchhoudini: '@launch_houdini'
       tk-shotgun-launchmaya: '@launch_maya'
       tk-shotgun-launchnuke: '@launch_nuke'
       tk-shotgun-launchnukex: '@launch_nukex'

@@ -75,6 +75,9 @@ keys:
     ext:
         type: str
 
+    layer:
+        type: str
+        filter_by: alphanumeric
     layer1:
         type: str
         filter_by: alphanumeric
