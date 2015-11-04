@@ -13,6 +13,6 @@ primary:
 
 secondary:
     description: "A top-level root folder where images live for both shots and assets"
-    windows_path: 'C:\mnt\images\projects'
     linux_path: null
     mac_path: null
+    windows_path: 'C:\mnt\images\projects'
