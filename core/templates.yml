@@ -72,21 +72,8 @@ keys:
         type: str
         shotgun_entity_type: Project
         shotgun_field_name: tank_name
-    any_ext:
-        alias: ext
+    ext:
         type: str
-    maya.ext:
-        alias: ext
-        type: str
-        choices: ["mb", "abc", "obj"]
-    photoshop.ext:
-        alias: ext
-        type: str
-        choices: ["psd", "tif"]
-    nuke.ext:
-        alias: ext
-        type: str
-        choices: ["dpx", "tif", "jpg"]
 
     layer1:
         type: str
@@ -196,7 +183,7 @@ paths:
         definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_[v{version}]'
         root_name: 'primary'
     shot_publish_footage_sequence:
-        definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.{SEQ}.{any_ext}'
+        definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.{SEQ}.{ext}'
         root_name: 'primary'
     shot_publish_footage_mov:
         definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.mov'
@@ -216,7 +203,10 @@ paths:
         root_name: 'primary'
     # The location of published files
     photoshop_shot_publish:
-        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.{photoshop.ext}'
+        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.psd'
+        root_name: 'primary'
+    photoshop_shot_publish_tif:
+        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.tif'
         root_name: 'primary'
     photoshop_shot_publish_layer:
         definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{layer}.tif'
@@ -237,13 +227,24 @@ paths:
         root_name: 'primary'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.{maya.ext}'
+        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.mb'
         root_name: 'primary'
 
     # The locations for playblasts from maya (Used by aaPlayblast)
     maya_shot_playblast_wip_mov:
         definition: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
         root_name: 'primary'
+
+    # The location of exported obj files from maya
+    maya_shot_publish_obj:
+        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.obj'
+        root_name: 'primary'
+
+    # The location of exported abc files from maya
+    maya_shot_publish_alembic:
+        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.abc'
+        root_name: 'primary'
+
     # The location of exported geocache files from maya
     maya_shot_publish_geocache:
         definition: '@shot_root/{Step}/pub/{name}/{version}'
@@ -266,11 +267,23 @@ paths:
         definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.nk'
         root_name: 'primary'
     # write node outputs
-    nuke_shot_render_mono:
-        definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.{nuke.ext}'
+    nuke_shot_render_mono_dpx:
+        definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
         root_name: 'primary'
-    nuke_shot_render_pub_mono:
-        definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.{nuke.ext}'
+    nuke_shot_render_pub_mono_dpx:
+        definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+        root_name: 'primary'
+    nuke_shot_render_mono_tif:
+        definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+        root_name: 'primary'
+    nuke_shot_render_pub_mono_tif:
+        definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+        root_name: 'primary'
+    nuke_shot_render_jpeg:
+        definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+        root_name: 'primary'
+    nuke_shot_render_pub_jpeg:
+        definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
         root_name: 'primary'
     nuke_shot_render_stereo:
         definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
@@ -320,7 +333,7 @@ paths:
         definition: '@asset_root/footage'
         root_name: 'primary'
     asset_publish_footage_sequence:
-        definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{any_ext}'
+        definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
         root_name: 'primary'
     asset_publish_footage_mov:
         definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
@@ -341,10 +354,13 @@ paths:
         root_name: 'primary'
     # The location of published files
     photoshop_asset_publish:
-        definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.{photoshop.ext}'
+        definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.psd'
+        root_name: 'primary'
+    photoshop_asset_publish_tif:
+        definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.tif'
         root_name: 'primary'
     photoshop_asset_publish_layer:
-        definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{layer}.{photoshop.ext}'
+        definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{layer}.tif'
         root_name: 'primary'
 
 
@@ -369,11 +385,18 @@ paths:
         root_name: 'primary'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}.{maya.ext}'
+        definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}.mb'
         root_name: 'primary'
     # The location of playblast render files (Used by aaPlayblast)
     maya_asset_playblast_wip_mov:
         definition: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
+        root_name: 'primary'
+    # The location of exported obj files from maya
+    maya_asset_publish_obj:
+        definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.obj'
+    # The location of exported abc files from maya
+    maya_asset_publish_alembic:
+        definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.abc'
         root_name: 'primary'
     # The location of exported geocache files from maya
     maya_asset_publish_geocache:
