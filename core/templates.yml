@@ -174,23 +174,23 @@ paths:
     # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     shot_wip_render_dir:
         definition: '@shot_root/render/wip/{render_type}[/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
-        root_name: 'primary'
+        root_name: 'secondary'
     shot_pub_render_dir:
         definition: '@shot_root/render/pub/{render_type}[/{Step}][/{name}][/v{version}]'
-        root_name: 'primary'
+        root_name: 'secondary'
     # The location of published footage files
     shot_publish_footage_dir:
         definition: '@shot_root/footage'
-        root_name: 'primary'
+        root_name: 'secondary'
     shot_publish_footage:
         definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_[v{version}]'
-        root_name: 'primary'
+        root_name: 'secondary'
     shot_publish_footage_sequence:
         definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.{SEQ}.{ext}'
-        root_name: 'primary'
+        root_name: 'secondary'
     shot_publish_footage_mov:
         definition: '@shot_root/footage/{name}/{project}-{Sequence}-{Shot}_{name}_v{version}/{project}-{Sequence}-{Shot}_{name}_pl_v{version}.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
 
     #
     # Photoshop
@@ -272,36 +272,36 @@ paths:
     # write node outputs
     nuke_shot_render_mono_dpx:
         definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_pub_mono_dpx:
         definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_mono_tif:
         definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_pub_mono_tif:
         definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_jpeg:
         definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_pub_jpeg:
         definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_stereo:
         definition: '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_pub_stereo:
         definition: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
-        root_name: 'primary'
+        root_name: 'secondary'
 
     # review output
     shot_quicktime_quick:
         definition: '@shot_root/{Step}/review/quickdaily/{project}-{Sequence}-{Shot}_{name}-{Step}_{iteration}.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_shot_render_movie:
         definition: '@shot_root/{Step}/review/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{nuke.output}.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
 
     ##########################################################################################
     # Asset pipeline
@@ -323,24 +323,24 @@ paths:
     # The location of render/comp directories (used by aapublish/utils/shotgun.py)
     asset_wip_render_dir:
         definition: '@asset_root/render/wip/{render_type}[/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
-        root_name: 'primary'
+        root_name: 'secondary'
     asset_pub_render_dir:
         definition: '@asset_root/render/pub/{render_type}[/{Step}][/{name}]/v{version}'
-        root_name: 'primary'
+        root_name: 'secondary'
 
     # The location of published footage files
     asset_publish_footage:
         definition: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_[v{version}]'
-        root_name: 'primary'
+        root_name: 'secondary'
     asset_publish_footage_dir:
         definition: '@asset_root/footage'
-        root_name: 'primary'
+        root_name: 'secondary'
     asset_publish_footage_sequence:
         definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.{SEQ}.{ext}'
-        root_name: 'primary'
+        root_name: 'secondary'
     asset_publish_footage_mov:
         definition: '@asset_root/footage/{project}-{sg_asset_type}-{Asset}_{name}-pl/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-pl.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
 
 
     #
@@ -413,17 +413,17 @@ paths:
     # write node outputs
     nuke_asset_render_mono_dpx:
         definition: '@asset_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-        root_name: 'primary'
+        root_name: 'secondary'
     nuke_asset_render_pub_mono_dpx:
         definition: '@asset_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{nuke.output}/]{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}[_{nuke.output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-        root_name: 'primary'
+        root_name: 'secondary'
     # review output
     nuke_asset_render_movie:
         definition: '@asset_root/{Step}/review/{sg_asset_type}-{Asset}_{name}-{Step}_{nuke.output}_{version}.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
     asset_quicktime_quick:
         definition: '@asset_root/{Step}/review/quickdaily/{sg_asset_type}-{Asset}_{name}-{Step}_{iteration}.mov'
-        root_name: 'primary'
+        root_name: 'secondary'
     # The location of WIP script files
     nuke_asset_work:
         definition: '@asset_root/{Step}/wip/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}.nk'
