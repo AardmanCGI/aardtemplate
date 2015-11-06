@@ -236,7 +236,7 @@ paths:
     # The locations for playblasts from maya (Used by aaPlayblast)
     maya_shot_playblast_wip_mov:
         definition: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
-        root_name: 'primary'
+        root_name: 'secondary'
 
     # The location of exported obj files from maya
     maya_shot_publish_obj:
@@ -393,10 +393,11 @@ paths:
     # The location of playblast render files (Used by aaPlayblast)
     maya_asset_playblast_wip_mov:
         definition: '@asset_root/render/wip/pb/{Step}/{name}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
-        root_name: 'primary'
+        root_name: 'secondary'
     # The location of exported obj files from maya
     maya_asset_publish_obj:
         definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.obj'
+        root_name: 'primary'
     # The location of exported abc files from maya
     maya_asset_publish_alembic:
         definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.abc'
