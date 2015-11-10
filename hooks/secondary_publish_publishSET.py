@@ -24,9 +24,9 @@ class PublishHook(Hook):
     """
     Single hook that implements publish functionality for secondary tasks
     """
-    
+
     isBaked = False # class variable to only bake camera once
-    
+
     def execute(self, tasks, work_template, comment, thumbnail_path, sg_task, primary_task, primary_publish_path, progress_cb, **kwargs):
         """
         Main hook entry point
@@ -165,8 +165,8 @@ class PublishHook(Hook):
             # publish maya camera output
             elif output["name"] == "mayacamera_export":
                 try:
-                   self.__bake_mayacamera(item, progress_cb)  
-                   self.__publish_mayacamera(item, output, work_template, primary_publish_path,
+                    print "made it here - publish maya camera output"
+                    self.__publish_mayacamera(item, output, work_template, primary_publish_path,
                                                          sg_task, comment, thumbnail_path, progress_cb)
                 except Exception, e:
                    errors.append("Publish failed - %s" % e)
@@ -174,8 +174,8 @@ class PublishHook(Hook):
             # publish alembic camera output
             elif output["name"] == "alembiccamera_export":
                 try:
-                   self.__bake_mayacamera(item, progress_cb)  
-                   self.__publish_alembiccamera(item, output, work_template, primary_publish_path,
+                    print "made it here - publish alembic camera output"
+                    self.__publish_alembiccamera(item, output, work_template, primary_publish_path,
                                                          sg_task, comment, thumbnail_path, progress_cb)
                 except Exception, e:
                    errors.append("Publish failed - %s" % e)
@@ -475,7 +475,7 @@ class PublishHook(Hook):
         # determine the publish info to use
         #
         progress_cb(10, "Determining publish details")
-        
+
         # the file and folder name is derived from the fur node
         furNodeName = item['name']
 
@@ -492,11 +492,11 @@ class PublishHook(Hook):
 
         # publish path looks something like this at the time of writing
         # C:\mnt\workspace\projects\unPE\spt\tests\furPipeDev\fx\pub\fur\008
-        # this is what goes in shotgun, and i'll use it when loading in the 
+        # this is what goes in shotgun, and i'll use it when loading in the
         # results at the other end
         sg_publish_path = publish_template.apply_fields(fields)
 
-        # for performance i think it's best to put each sequence of fur cache 
+        # for performance i think it's best to put each sequence of fur cache
         # files in a subdirectory (we can more quickly get the list of caches
         # from a dir listing that way)
         # the final publish path will look like this
@@ -517,9 +517,9 @@ class PublishHook(Hook):
         # Find additional info from the scene:
         progress_cb(10, "Analysing scene")
 
-        # for the given fur node work out the range to cache. this is the 
+        # for the given fur node work out the range to cache. this is the
         # minimum of playback start and the earliest simulation start time for
-        # any of the connected grooms 
+        # any of the connected grooms
         start_frame = int(cmds.playbackOptions(q=True, min=True))
         end_frame = int(cmds.playbackOptions(q=True, max=True))
 
@@ -541,7 +541,7 @@ class PublishHook(Hook):
         progress_cb(20, "Exporting Yeti Cache")
         self.parent.log_info("Executing command: pgYetiCommand(%s,%s,%s)"\
                                % ( actual_publish_path, start_frame, end_frame ) )
-        cmds.pgYetiCommand(furNodeName, writeCache=actual_publish_path, 
+        cmds.pgYetiCommand(furNodeName, writeCache=actual_publish_path,
                            range=(start_frame, end_frame),
                            samples=3,
                            updateViewport=False)
@@ -553,7 +553,7 @@ class PublishHook(Hook):
             "context": self.parent.context,
             "comment": comment,
             "path": sg_publish_path,
-            "name": publish_name, # "fur" 
+            "name": publish_name, # "fur"
             "version_number": publish_version,
             "thumbnail_path": thumbnail_path,
             "task": sg_task,
@@ -768,114 +768,3 @@ class PublishHook(Hook):
         end = int(cmds.playbackOptions(q=True, max=True))
 
         return (start, end)
-    
-    # added for Baking preped camera before publishing
-    #
-    def _find_linked_scene_cameras(self, item, progress_cb):
-        """
-        Check the camera is connected to  a shot camera and get the shot cameras
-        name
-        
-        :param item:                    The item to be published
-
-        :param progress_cb:             Function
-                                        A progress callback to log progress during pre-publish.  Call:
-
-                                            progress_cb(percentage, msg)
-
-                                        to report progress to the UI
-
-        :returns:                       A tuple containing the preped camera and anim camera
-        """
-        try:
-            self.parent.log_debug("Getting the Anim Camera from the Preped Camera")
-            if cmds.attributeQuery( 'preped_CAM', n=item["name"], ex=True) and not self.isBaked:
-                shot_cam = cmds.connectionInfo("%s.preped_CAM" %item["name"], sfd=True).split('.')[0]
-                if shot_cam:
-                    # Check the preped_CAM msg attr is connected to a camera
-                    shot_cam_shapes = cmds.listRelatives(shot_cam, fullPath=True, shapes=True)
-                    if shot_cam_shapes != None:
-                        for shot_cam_shape in shot_cam_shapes:
-                            if cmds.nodeType(shot_cam_shape) == 'camera':
-                                return (item["name"], shot_cam)
-                else:
-                    raise TankError("Shot Camera is not connected to the Preped Camera." )
-                                
-        except Exception, e:
-            raise TankError("Failed to get the Shot Camera from the Preped Camera: %s" % e)
-
-    def __bake_mayacamera(self, item, progress_cb):
-        """
-        Connect the preped camera in the Publish_set to the shot anim camera 
-        and bake before publishing.
-
-        :param item:                    The item to be published
-
-        :param progress_cb:             Function
-                                        A progress callback to log progress during pre-publish.  Call:
-
-                                            progress_cb(percentage, msg)
-
-                                        to report progress to the UI
-        """
-        try:
-            if not self.isBaked:
-                self.parent.log_debug("Executing Camera Bake Process")
-                
-                # Get the linked scene cameras from the publish item
-                bakeCams = self._find_linked_scene_cameras(item, progress_cb)
-                
-                progress_cb(30, "Baking Camera")
-                
-                # Unlock Channels
-                for transform in ['t','r','s']:
-                    for axis in ['x','y','z']:
-                        cmds.setAttr("%s.%s%s" %(bakeCams[0], transform, axis), l=False)
-        
-                # Delete anim curves from Channels
-                cmds.delete( bakeCams[0], c=True, s=True )
-                
-                # Create constraints back to anim cam
-                constraints = []        
-                constraints.extend( cmds.parentConstraint(bakeCams[1], bakeCams[0], mo=False))
-                constraints.extend( cmds.scaleConstraint(bakeCams[1], bakeCams[0], mo=False))
-                
-                # Get all keyable connections to the shape.
-                animCamShapes = cmds.listRelatives(bakeCams[1], s=True, f=True, type='camera')
-                for animCamShape in animCamShapes:
-                    connections = cmds.listConnections(animCamShape, s=True, c=True, d=False)
-                    connections = filter(lambda connection: "." in connection, connections)
-                    for connection in connections:
-                        
-                        # if the connected node type is one of the nodes in the 
-                        # list ignore it and move on
-                        connectedNode = cmds.connectionInfo(connection, sfd=True).split('.')[0]
-                        if cmds.nodeType(connectedNode) in ['imagePlane']:
-                            continue;
-                        
-                        # Connect the anim camera attributes to the preped_CAM attributes
-                        if cmds.attributeQuery(connection.split('.')[-1], n=connection.split('.')[0], k=True):
-                            connectedTo = '|%s|%s' %(connection.split('|')[-2], connection.split('|')[-1])
-                            cmds.setAttr(connectedTo, l=False)
-                            cmds.connectAttr(connection, connectedTo, f=True)
-                    
-                # Bake the preped_CAM 
-                startFrame = cmds.playbackOptions(q=True, ast=True)
-                endFrame = cmds.playbackOptions(q=True, aet=True)
-                cmds.bakeResults(bakeCams[0], t=(startFrame,endFrame), simulation=True, sampleBy=1, disableImplicitControl=True, preserveOutsideKeys=True, sparseAnimCurveBake=False, removeBakedAttributeFromLayer=False, removeBakedAnimFromLayer=False, bakeOnOverrideLayer=False, minimizeRotation=True, controlPoints=False, shape=True)
-
-                # Delete constraints
-                for constraint in constraints:
-                    cmds.delete(constraint)
-                
-                # Lock Channels
-                for transform in ['t','r','s']:
-                    for axis in ['x','y','z']:
-                        cmds.setAttr("%s.%s%s" %(bakeCams[0], transform, axis), l=True)
-                
-                self.isBaked = True # Class variable set at instantiation
-            else:
-                self.parent.log_debug("Camera has already been baked for this publish process")
-        
-        except Exception, e:
-            raise TankError("Failed to bake camera: %s" %e)

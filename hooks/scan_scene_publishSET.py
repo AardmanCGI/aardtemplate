@@ -107,11 +107,11 @@ class ScanSceneHook(Hook):
 
             # yeti fur effects cache?
             if ctx.step['name'] == 'effects':
-                
+
                 # are there any yetiCache_SETS ?
                 yetiCacheSets = [o for o in cmds.ls(typ="objectSet") if "yetiCache_SET" in o]
-    
-                # if there are any, then add any yeti nodes contained in them 
+
+                # if there are any, then add any yeti nodes contained in them
                 # to the output
                 # get all the yetiNodes that are in yetiCache_SETs
                 yetiNodes = []
@@ -119,13 +119,13 @@ class ScanSceneHook(Hook):
                     for cacheSet in yetiCacheSets:
                         yetiNodes.extend(utils.getYetiNodesFromSet(cacheSet))
 
-                # make sure we don't add the same node twice in case it's in 
+                # make sure we don't add the same node twice in case it's in
                 # more than one set
                 for yetiNode in list(set(yetiNodes)):
 
                     # type needs to match the scene_item_type in shot_step.yml
                     # name is the name of the output presented to the user.
-                    # this is the yeti node name - which allows people to 
+                    # this is the yeti node name - which allows people to
                     # override which nodes to cache
                     items.append({"type":"yeti_node", "name":yetiNode})
 
@@ -141,49 +141,25 @@ class ScanSceneHook(Hook):
 
                 # look for cameras
                 isCamera = False
-                
+
                 shapes = cmds.listRelatives(obj, fullPath=True, shapes=True)
                 if shapes != None:
                     for shape in shapes:
                         if cmds.nodeType(shape) == 'camera':
                             isCamera = True
-                
-                # Preped cameras are duplicates of the shot camera with a msg attr
-                # pointing back to the original shot camera. 
-                # This camera is baked at publish time. 
-                isPreped = False
-                bakeCams = None
-                # test if the camera has been preped. 
-                # Preped cam requires the preped_CAM msg attr and a 
-                # connection to exist between the preped cam and the anim cam
-                if isCamera:
-                    if cmds.attributeQuery( 'preped_CAM', n=obj, ex=True):
-                        shot_cam = cmds.connectionInfo("%s.preped_CAM" %obj, sfd=True).split('.')[0]
-                        if shot_cam:
-                            # Check the preped_CAM msg attr is connected to a camera
-                            shot_cam_shapes = cmds.listRelatives(shot_cam, fullPath=True, shapes=True)
-                            if shot_cam_shapes != None:
-                                for shot_cam_shape in shot_cam_shapes:
-                                    if cmds.nodeType(shot_cam_shape) == 'camera':
-                                        isPreped = True
 
                 # check they are named correctly
                 isNamed = False
                 if obj.endswith('_CAM'):
                     isNamed = True
-                    
+
                 # drop out and notify user if they are trying to publish dodgy cameras
                 if isCamera and not isNamed:
                     raise TankError("Incorrectly named camera(s) in publish_SET."\
                                     " Must be '*_CAM'")
-                
-                # drop out and notify user if they are trying to publish dodgy cameras
-                if isCamera and not isPreped:
-                    raise TankError("Camera in publish_SET has not been correctly preped."\
-                                    " Please use the Prep Cam tool")
 
-                if isCamera and isNamed and isPreped:
+                if isCamera and isNamed:
                     # all good, add camera to list
                     items.append({"type": "camera", "name":obj})
-    
+
         return items
