@@ -333,7 +333,7 @@ engines:
         hook_filter_work_files: '{self}/filter_work_files.py'
         hook_scene_operation: '{config}/workfiles2/scene_operation_tk-maya.py'
         launch_at_startup: false
-        location: {name: tk-multi-workfiles2, type: app_store, version: v0.7.9}
+        location: {name: tk-multi-workfiles2, type: app_store, version: v0.7.13}
         my_tasks_extra_display_fields: []
         saveas_default_name: master
         saveas_prefer_version_up: false
