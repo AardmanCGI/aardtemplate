@@ -82,7 +82,7 @@ class ScanSceneHook(Hook):
             items.append({"type": "work_file", "name":name })
 
             # if we are publishing an anim scene, do the extra geo cache
-            if ctx.step['name'] in ['animation','block']:
+            if ctx.step['name'] in ['animation','block','effects']:
                 # check for any cache_SETs referenced into scene. must be in publish_SET
                 for obj in cmds.sets('publish_SET',q=True):
                     # look for sets
