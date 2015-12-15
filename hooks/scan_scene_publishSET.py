@@ -83,7 +83,6 @@ class ScanSceneHook(Hook):
 
             # if we are publishing an anim scene, do the extra geo cache
             if ctx.step['name'] in ['animation','block']:
-                docache = False
                 # check for any cache_SETs referenced into scene. must be in publish_SET
                 for obj in cmds.sets('publish_SET',q=True):
                     # look for sets
@@ -100,10 +99,8 @@ class ScanSceneHook(Hook):
                         isReferenced = True
 
                     if isSet and isNamed and isReferenced:
-                        # all good, add to we have at least one cache set
-                        docache = True
-                if docache:
-                    items.append({"type": "cache_set", "name":'cache sets'})
+                        namespace = obj.split(":")[0]
+                        items.append({"type": "cache_set", "name": namespace})
 
             # yeti fur effects cache?
             if ctx.step['name'] == 'effects':

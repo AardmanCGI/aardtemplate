@@ -277,14 +277,21 @@ engines:
         - {description: Export Obj data from model, display_group: Model, display_name: Obj
             Export, icon: icons/publish_maya_cache.png, default_thumbnail: icons/thumbnail.png, name: obj_export, publish_template: maya_asset_publish_obj,
           required: false, scene_item_type: mesh_list, selected: true, tank_type: Obj}
-        - {description: Publish Alembic data from model, display_group: Model, display_name: Alembic
-            Export, icon: icons/alembic_cache_publish.png, default_thumbnail: icons/thumbnail_alembic.png, name: alembic_cache, publish_template: maya_asset_publish_alembic,
-          required: false, scene_item_type: mesh_list, selected: false, tank_type: Alembic
-            Cache}
+        - description: Publish Alembic data for all geometry in the scene
+          display_group: Animation
+          display_name: Alembic Caches
+          icon: icons/alembic_cache_publish.png
+          default_thumbnail: icons/thumbnail_alembic.png
+          name: alembic_cache
+          publish_template: maya_asset_publish_alembic
+          required: false
+          scene_item_type: cache_set
+          selected: true
+          tank_type: Alembic Cache
         - {description: Publish GeoCache data from anim, display_group: Animation,
           display_name: GeoCache Export, icon: icons/geocache_publish.png, default_thumbnail: icons/thumbnail_geocache.png, name: geocache_export,
           publish_template: maya_asset_publish_geocache, required: false, scene_item_type: cache_set,
-          selected: true, tank_type: GeoCache}
+          selected: false, tank_type: GeoCache}
         - {description: Publish Yeti Fur cache(s), display_group: YetiFur, display_name: Yeti
             Export, icon: icons/publish_maya_yeti.png, default_thumbnail: icons/thumbnail_yeti.png,name: yeti_cache, publish_template: maya_shot_publish_geocache,
           required: false, scene_item_type: yeti_node, selected: true, tank_type: Yeti

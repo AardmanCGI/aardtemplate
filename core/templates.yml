@@ -252,7 +252,7 @@ paths:
     maya_shot_publish_obj: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.obj'
 
     # The location of exported abc files from maya
-    maya_shot_publish_alembic: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.abc'
+    maya_shot_publish_alembic: '@shot_root/{Step}/pub/{name}/{version}/{cache_name}_cache.abc'
 
     # The location of exported geocache files from maya
     maya_shot_publish_geocache: '@shot_root/{Step}/pub/{name}/{version}'
@@ -396,7 +396,7 @@ paths:
     maya_asset_publish_obj: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.obj'
 
     # The location of exported abc files from maya
-    maya_asset_publish_alembic: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}.abc'
+    maya_asset_publish_alembic: '@asset_root/{Step}/pub/{name}/{version}/{cache_name}_cache.abc'
 
     # The location of exported geocache files from maya
     maya_asset_publish_geocache: '@asset_root/{Step}/pub/{name}/{version}'

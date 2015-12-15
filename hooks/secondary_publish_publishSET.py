@@ -12,6 +12,7 @@ import os
 import shutil
 import maya.cmds as cmds
 import maya.mel as mel
+import pymel.core
 
 import tank
 from tank import Hook
@@ -224,6 +225,8 @@ class PublishHook(Hook):
         publish_version = fields["version"]
         tank_type = output["tank_type"]
 
+        fields["cache_name"] = item["name"]
+
         # create the publish path by applying the fields
         # with the publish template:
         publish_template = output["publish_template"]
@@ -242,22 +245,26 @@ class PublishHook(Hook):
         #
         progress_cb(10, "Analysing scene")
 
-        # set the alembic args that make the most sense when working with Mari.  These flags
-        # will ensure the export of an Alembic file that contains all visible geometry from
-        # the current scene together with UV's and face sets for use in Mari.
         alembic_args = ["-renderableOnly",   # only renderable objects (visible and not templated)
-                        "-writeFaceSets",    # write shading group set assignments (Maya 2015+)
-                        "-uvWrite"           # write uv's (only the current uv set gets written)
+                        "-worldSpace",
                         ]
 
         # find the animated frame range to use:
-        start_frame, end_frame = self._find_scene_animation_range()
-        if start_frame and end_frame:
-            alembic_args.append("-fr %d %d" % (start_frame, end_frame))
+        # Don't use self._find_scene_animation_range() because with effects
+        # scenes we don't have a anim curve to determine the frame range from
+        start_frame = int(cmds.playbackOptions(q=True, min=True))
+        end_frame = int(cmds.playbackOptions(q=True, max=True))
+        alembic_args.append("-fr %d %d" % (start_frame, end_frame))
 
         # Set the output path:
         # Note: The AbcExport command expects forward slashes!
         alembic_args.append("-file %s" % publish_path.replace("\\", "/"))
+
+        # Ideally we'd be doing a single AbcExport command with a job for each
+        # item, but that's not the way that shotgun wants it :/
+        cache_set = item["name"] + ':cache_SET'
+        for member in cmds.sets(cache_set, q=True):
+            alembic_args.append("-root " + str(member))
 
         # build the export command.  Note, use AbcExport -help in Maya for
         # more detailed Alembic export help
@@ -413,6 +420,8 @@ class PublishHook(Hook):
         # with the publish template:
         publish_template = output["publish_template"]
         publish_path = publish_template.apply_fields(fields)
+        # doCreateGeometryCache expects forward slashes
+        geo_publish_path = publish_path.replace("\\", "/")
 
         # ensure the publish folder exists:
         publish_folder = os.path.dirname(publish_path)
@@ -428,15 +437,24 @@ class PublishHook(Hook):
         progress_cb(10, "Analysing scene")
 
         # find the animated frame range to use:
-        start_frame, end_frame = self._find_scene_animation_range()
+        frame_start = int(cmds.playbackOptions(q=True, min=True))
+        frame_end = int(cmds.playbackOptions(q=True, max=True))
+
+        namespace = item["name"]
+        setName = namespace + ":cache_SET"
+        members = pymel.core.sets(setName, q=True)
+        transforms = map(lambda m: pymel.core.listRelatives(m, type="transform", allDescendents=True) if not m.endswith("_GEO") else [m], members)
+        geos = [geo for geoList in transforms for geo in geoList if geo.endswith("_GEO")]
+        pymel.core.select(geos)
 
         # run the command:
         progress_cb(30, "Exporting GeoCache")
+
+        geo_export_cmd = 'doCreateGeometryCache 6 {{ "0", "{}", "{}", "OneFile", "0", "{}/{}", "1", "", "0", "export", "0", "1", "1", "0", "1", "mcc", "1" }} ;'.format(frame_start, frame_end, geo_publish_path, namespace)
         try:
             # do it
-            self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
-                                   % ( publish_path, start_frame, end_frame ) )
-            aaPCGen.doExport(publish_path,start_frame,end_frame)
+            self.parent.log_debug("Executing command: " + geo_export_cmd)
+            mel.eval(geo_export_cmd)
         except Exception, e:
             raise TankError("Failed to export GeoCache: %s" % e)
 
