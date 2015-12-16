@@ -135,7 +135,7 @@ class PrimaryPublishHook(Hook):
                             type='mayaBinary',
                             exportSelected=True,
                             force=True,
-                            preserveReferences=True,
+                            preserveReferences=(stepName == "renderable"),
                          )
 
                 # reset the selection to what it was prior
