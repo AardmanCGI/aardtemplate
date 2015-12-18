@@ -72,7 +72,7 @@ launch_houdini:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@houdini_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: ''
   menu_name: Launch Houdini
@@ -88,7 +88,7 @@ launch_mari:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@mari_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@mari_mac'
   menu_name: Launch Mari
@@ -104,7 +104,7 @@ launch_maya:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@maya_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@maya_mac'
   menu_name: Launch Maya
@@ -136,7 +136,7 @@ launch_nuke:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@nuke_mac'
   menu_name: Launch Nuke
@@ -152,7 +152,7 @@ launch_nukestudio:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@nuke_mac'
   menu_name: Launch NukeStudio
@@ -168,7 +168,7 @@ launch_nukex:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: '@nuke_linux'
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@nuke_mac'
   menu_name: Launch NukeX
@@ -184,7 +184,7 @@ launch_pftrack:
   icon: '@pftrack_icon_windows'
   linux_args: ''
   linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: ''
   menu_name: Launch PFTrack
@@ -200,7 +200,7 @@ launch_photoshop:
   icon: '{target_engine}/icon_256.png'
   linux_args: ''
   linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: '@photoshop_mac'
   menu_name: Launch Photoshop
@@ -216,7 +216,7 @@ launch_rv:
   icon: '@rv_icon_windows'
   linux_args: ''
   linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: ''
   menu_name: Launch RV
@@ -261,7 +261,7 @@ launch_topogun:
   icon: '@topogun_icon_windows'
   linux_args: ''
   linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: ''
   menu_name: Launch TopoGun
@@ -277,7 +277,7 @@ launch_zbrush:
   icon: '@zbrush_icon_windows'
   linux_args: ''
   linux_path: ''
-  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.6}
+  location: {name: tk-multi-launchapp, type: app_store, version: v0.6.7}
   mac_args: ''
   mac_path: ''
   menu_name: Launch ZBrush

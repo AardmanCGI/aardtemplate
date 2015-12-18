@@ -11,7 +11,7 @@ engines:
       tk-multi-workfiles: '@workfiles-launch-at-startup'}
     compatibility_dialog_min_version: 2015
     debug_logging: false
-    location: {name: tk-maya, type: app_store, version: v0.5.1}
+    location: {name: tk-maya, type: app_store, version: v0.5.4}
     menu_favourites:
     - {app_instance: tk-multi-workfiles, name: Shotgun File Manager...}
     template_project: null
@@ -19,13 +19,16 @@ engines:
   tk-nuke:
     apps: {tk-multi-about: '@about', tk-multi-screeningroom: '@launch_screeningroom',
       tk-multi-workfiles: '@workfiles'}
+    bin_context_menu: []
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
-    location: {name: tk-nuke, type: app_store, version: v0.3.1}
+    location: {name: tk-nuke, type: app_store, version: v0.4.1}
     menu_favourites:
     - {app_instance: tk-multi-workfiles, name: Shotgun File Manager...}
     project_favourite_name: Shotgun Current Project
+    spreadsheet_context_menu: []
+    timeline_context_menu: []
     use_sgtk_as_menu_name: false
   tk-photoshop:
     apps: {tk-multi-about: '@about', tk-multi-screeningroom: '@launch_screeningroom',
@@ -40,8 +43,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.7}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git',
+          type: git, version: v0.4.7}
         menu_name: footage
         publish_type: footage
         tank_type: Footage Sequence
@@ -52,8 +55,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.7}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git',
+          type: git, version: v0.4.7}
         menu_name: output
         publish_type: output
         tank_type: Output Sequence
@@ -64,8 +67,8 @@ engines:
         app_mode: gui
         hook_publish: default
         hook_scan_scene: default
-        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git', type: git,
-          version: v0.4.7}
+        location: {path: 'https://github.com/AardmanCGI/tk-multi-imagepublish.git',
+          type: git, version: v0.4.7}
         menu_name: render
         publish_type: render
         tank_type: Render Sequence
@@ -81,17 +84,17 @@ engines:
     location: {name: tk-shell, type: app_store, version: v0.4.1}
 frameworks:
   tk-framework-aapublish_v0.0.x:
+    hook_publish: default
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
       version: v0.0.5}
-    hook_publish: default
   tk-framework-aapublish_v0.1.x:
+    hook_publish: default
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
       version: v0.1.4}
-    hook_publish: default
   tk-framework-aapublish_v0.2.x:
-    location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.2.3}
     hook_publish: default
+    location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
+      version: v0.2.4}
   tk-framework-widget_v0.1.18:
     location: {name: tk-framework-widget, type: app_store, version: v0.1.18}
 includes: [./includes/app_launchers.yml, ./includes/common_apps.yml]
