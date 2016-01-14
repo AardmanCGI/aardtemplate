@@ -1,6 +1,8 @@
 import sgtk
 import os
 
+import pymel.core
+
 from aaCaching import aaPublishedCacheConnectDialog as aaPCC
 reload(aaPCC)
 
@@ -59,6 +61,11 @@ class CustomActions(HookBaseClass):
                                       "params": None,
                                       "caption": "Load GeoCache",
                                       "description": "This will launch the interface to connect published caches to readers in the current scene."} )
+        if "load_alembic" in actions:
+            action_instances.append( {"name": "load_alembic",
+                                      "params": None,
+                                      "caption": "Load Alembic Cache",
+                                      "description": "Uses all alembics in the publish folder to update the alembic references on the references renderables."} )
         if "load_yeticache" in actions:
             action_instances.append( {"name": "load_yeticache",
                                       "params": None,
@@ -84,6 +91,8 @@ class CustomActions(HookBaseClass):
         if name == "load_cache":
             # summon the dialog to connect up caches to readers
             aaPCC.connectPublishedCache(path)
+        elif name == "load_alembic":
+            aaPCC.connectPublishedAlembic(path)
         elif name == "load_yeticache":
             aaPublishedYetiConnectDialog.connectPublishedCache(path)
         else:

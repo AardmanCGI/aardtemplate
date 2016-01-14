@@ -21,6 +21,9 @@ from tank import TankError
 from aaCaching import aaPublishedCacheGenerate as aaPCGen
 reload(aaPCGen)
 
+import aaSubmit.submitApi
+import aaSubmit.utils
+
 class PublishHook(Hook):
     """
     Single hook that implements publish functionality for secondary tasks
@@ -101,6 +104,9 @@ class PublishHook(Hook):
 
         default_thumb = not os.path.exists(thumbnail_path)
 
+        alembic_jobs = []
+        alembic_publish_tasks = []
+
         # publish all tasks:
         for task in tasks:
             item = task["item"]
@@ -142,8 +148,10 @@ class PublishHook(Hook):
             # publish alembic_cache output
             if output["name"] == "alembic_cache":
                 try:
-                   self.__publish_alembic_cache(item, output, work_template, primary_publish_path,
+                   alembic_job, publish_task = self.__publish_alembic_cache(item, output, work_template, primary_publish_path,
                                                 sg_task, comment, thumbnail_path, progress_cb)
+                   alembic_jobs.append(alembic_job)
+                   alembic_publish_tasks.append(publish_task)
                 except Exception, e:
                    errors.append("Publish failed - %s" % e)
 
@@ -198,6 +206,36 @@ class PublishHook(Hook):
 
             progress_cb(100)
 
+        # Submit all alembic jobs to the farm
+        # We do it like this so that there's one farm job per publish, not per
+        # element to be cached
+        if alembic_jobs:
+            try:
+                scene_path = os.path.abspath(cmds.file(query=True, sn=True))
+                scene_file = os.path.basename(scene_path)
+                scene_filename = os.path.splitext(scene_file)[0]
+
+                # We need to use str because tractor doesn't accept unicode strings :/
+                job = aaSubmit.utils.create_job(str("AC_" + scene_filename), 40)
+
+                args = aaSubmit.submitApi.create_runalembicjobs_args(scene_path, "crate", *alembic_jobs)
+                cache_task = aaSubmit.utils.create_task_with_command("Cache", args)
+
+                publish_all_task = aaSubmit.utils.create_task("Publish Alembics", serialSubTasks=False)
+                for publish_task in alembic_publish_tasks:
+                    aaSubmit.utils.add_subtask(publish_all_task, publish_task)
+
+                serial_task = aaSubmit.utils.create_task("Cache then Publish", serialSubTasks=True)
+                aaSubmit.utils.add_subtask(serial_task, cache_task)
+                aaSubmit.utils.add_subtask(serial_task, publish_all_task)
+
+                aaSubmit.utils.add_subtask(job, serial_task)
+                aaSubmit.utils.submit_job(job)
+            except:
+                import traceback
+                task = next(task for task in tasks if task["output"]["name"] == "alembic_cache")
+                results.append({"task": task, "errors": ["Publish failed - " + traceback.format_exc()]})
+
         return results
 
     def __publish_alembic_cache(self, item, output, work_template, primary_publish_path,
@@ -245,58 +283,52 @@ class PublishHook(Hook):
         #
         progress_cb(10, "Analysing scene")
 
-        alembic_args = ["-renderableOnly",   # only renderable objects (visible and not templated)
-                        "-worldSpace",
-                        ]
+        alembic_args = [
+                "normals=0",
+                "uvs=0",
+                "facesets=0",
+                "useinitshadgrp=0",
+                "dynamictopology=0",
+                "transformcache=0",
+                "globalspace=0",
+                "ogawa=1",
+                ]
 
         # find the animated frame range to use:
         # Don't use self._find_scene_animation_range() because with effects
         # scenes we don't have a anim curve to determine the frame range from
         start_frame = int(cmds.playbackOptions(q=True, min=True))
         end_frame = int(cmds.playbackOptions(q=True, max=True))
-        alembic_args.append("-fr %d %d" % (start_frame, end_frame))
+        alembic_args.append("in=%d;out=%d" % (start_frame, end_frame))
 
         # Set the output path:
         # Note: The AbcExport command expects forward slashes!
-        alembic_args.append("-file %s" % publish_path.replace("\\", "/"))
+        alembic_args.append("filename=%s" % publish_path.replace("\\", "/"))
 
-        # Ideally we'd be doing a single AbcExport command with a job for each
-        # item, but that's not the way that shotgun wants it :/
         cache_set = item["name"] + ':cache_SET'
-        for member in cmds.sets(cache_set, q=True):
-            alembic_args.append("-root " + str(member))
+        alembic_args.append("objects=" + ','.join(cmds.sets(cache_set, q=True)))
 
-        # build the export command.  Note, use AbcExport -help in Maya for
-        # more detailed Alembic export help
-        abc_export_cmd = ("AbcExport -j \"%s\"" % " ".join(alembic_args))
+        job_string = ";".join(alembic_args)
 
-        # ...and execute it:
-        progress_cb(30, "Exporting Alembic cache")
-        try:
-            # make sure plugin is loaded
-            if not cmds.pluginInfo('AbcExport',query=True,loaded=True):
-                cmds.loadPlugin('AbcExport')
-            # do it
-            self.parent.log_debug("Executing command: %s" % abc_export_cmd)
-            mel.eval(abc_export_cmd)
-        except Exception, e:
-            raise TankError("Failed to export Alembic Cache: %s" % e)
+        progress_cb(30, "Preparing publish task for the farm")
 
-        # register the publish:
-        progress_cb(75, "Registering the publish")
-        args = {
-            "tk": self.parent.tank,
-            "context": self.parent.context,
-            "comment": comment,
-            "path": publish_path,
-            "name": publish_name,
-            "version_number": publish_version,
-            "thumbnail_path": thumbnail_path,
-            "task": sg_task,
-            "dependency_paths": [primary_publish_path],
-            "published_file_type":tank_type
-        }
-        tank.util.register_publish(**args)
+        user = tank.util.get_current_user(self.parent.tank)
+        args = aaSubmit.submitApi.create_sgpublish_args(
+                publish_folder,
+                publish_path,
+                publish_name,
+                publish_version,
+                comment or "No comment",
+                user["type"],
+                user["id"],
+                thumbnail_path,
+                tank_type,
+                sg_task["id"],
+                dependencyPaths=[primary_publish_path]
+                )
+        pub_task = aaSubmit.utils.create_task_with_command(str("Publish " + os.path.basename(publish_path)), args)
+
+        return (job_string, pub_task)
 
 
     def __publish_obj(self, item, output, work_template, primary_publish_path,

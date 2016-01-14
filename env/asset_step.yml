@@ -254,6 +254,7 @@ engines:
       tk-multi-loader2:
         action_mappings:
           GeoCache: [load_cache]
+          Alembic Cache: [load_alembic]
           Maya Scene: [reference, import]
           Photoshop Image: [texture_node]
           Rendered Image: [texture_node]
