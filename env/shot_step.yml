@@ -241,7 +241,7 @@ engines:
           name: obj_export, publish_template: maya_shot_publish_obj, required: false,
           scene_item_type: mesh_list, selected: true, tank_type: Obj}
         - {default_thumbnail: icons/thumbnail_alembic.png, description: Publish Alembic
-            data for all geometry in the scene, display_group: Animation, display_name: Alembic
+            data for all geometry in the cache_SET, display_group: Animation, display_name: Alembic
             Caches, icon: icons/alembic_cache_publish.png, name: alembic_cache, publish_template: maya_shot_publish_alembic,
           required: false, scene_item_type: cache_set, selected: true, tank_type: Alembic
             Cache}
