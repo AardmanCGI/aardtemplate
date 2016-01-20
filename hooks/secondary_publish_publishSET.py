@@ -182,8 +182,10 @@ class PublishHook(Hook):
             # publish alembic camera output
             elif output["name"] == "alembiccamera_export":
                 try:
-                    self.__publish_alembiccamera(item, output, work_template, primary_publish_path,
+                    alembic_job, publish_task = self.__publish_alembiccamera(item, output, work_template, primary_publish_path,
                                                          sg_task, comment, thumbnail_path, progress_cb)
+                    alembic_jobs.append(alembic_job)
+                    alembic_publish_tasks.append(publish_task)
                 except Exception, e:
                    errors.append("Publish failed - %s" % e)
             elif item["type"] == "yeti_node":
@@ -737,6 +739,7 @@ class PublishHook(Hook):
         # handle full paths, trim off everything after the _
         # e.g. |pivot_GRP|master_CAM -> master
         fields["name"] = item["name"].split("|")[-1].split("_")[0]
+        fields["cache_name"] = fields["name"]
 
         # create the publish path by applying the fields
         # with the publish template:
@@ -755,53 +758,50 @@ class PublishHook(Hook):
 
 
         # set up args to export current camera item
-        alembic_args = ["-stripNamespaces",
-                        "-root %s" % (item["name"]),
+        alembic_args = [
+                        "objects=" + item["name"],
+                        "ogawa=1",
                         ]
 
         # find the animated frame range to use:
-        start_frame, end_frame = self._find_scene_animation_range()
-        if start_frame and end_frame:
-            alembic_args.append("-fr %d %d" % (start_frame, end_frame))
+        # Don't use self._find_scene_animation_range() because with effects
+        # scenes we don't have a anim curve to determine the frame range from
+        start_frame = int(cmds.playbackOptions(q=True, min=True))
+        end_frame = int(cmds.playbackOptions(q=True, max=True))
+        alembic_args.append("in=%d;out=%d" % (start_frame, end_frame))
 
         # Set the output path:
         # Note: The AbcExport command expects forward slashes!
-        alembic_args.append("-file %s" % publish_path.replace("\\", "/"))
+        alembic_args.append("filename=%s" % publish_path.replace("\\", "/"))
 
-        # build the export command.  Note, use AbcExport -help in Maya for
-        # more detailed Alembic export help
-        abc_export_cmd = ("AbcExport -j \"%s\"" % " ".join(alembic_args))
+        job_string = ";".join(alembic_args)
 
         # ...and execute it:
-        progress_cb(30, "Exporting Alembic cache")
-        try:
-            # make sure plugin is loaded
-            if not cmds.pluginInfo('AbcExport',query=True,loaded=True):
-                cmds.loadPlugin('AbcExport')
-            # do it
-            self.parent.log_debug("Executing command: %s" % abc_export_cmd)
-            mel.eval(abc_export_cmd)
-        except Exception, e:
-            raise TankError("Failed to export Alembic Cache: %s" % e)
+        progress_cb(30, "Preparing publish task for the farm")
 
-        except Exception, e:
-            raise TankError("Failed to export to %s - %s" % (publish_path, e))
+        thumb_name = os.path.basename(thumbnail_path)
+        new_thumbnail_path = os.path.join("C:\\mnt\\workspace\\tmp\\thumbnails", item["name"].replace("|", "_") + "_" + thumb_name)
+        shutil.copy2(thumbnail_path, new_thumbnail_path)
+        thumbnail_path = new_thumbnail_path
 
-        # register the publish:
-        progress_cb(75, "Registering the publish")
-        args = {
-            "tk": self.parent.tank,
-            "context": self.parent.context,
-            "comment": comment,
-            "path": publish_path,
-            "name": publish_name,
-            "version_number": publish_version,
-            "thumbnail_path": thumbnail_path,
-            "task": sg_task,
-            "dependency_paths": [primary_publish_path],
-            "published_file_type":tank_type
-        }
-        tank.util.register_publish(**args)
+        user = tank.util.get_current_user(self.parent.tank)
+        args = aaSubmit.submitApi.create_sgpublish_args(
+                publish_folder,
+                publish_path,
+                publish_name,
+                publish_version,
+                comment or "No comment",
+                user["type"],
+                user["id"],
+                thumbnail_path,
+                tank_type,
+                sg_task["id"],
+                dependencyPaths=[primary_publish_path],
+                deleteThumbnail=True,
+                )
+        pub_task = aaSubmit.utils.create_task_with_command(str("Publish " + os.path.basename(publish_path)), args)
+
+        return (job_string, pub_task)
 
     def _find_scene_animation_range(self):
         """
