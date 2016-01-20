@@ -310,6 +310,11 @@ class PublishHook(Hook):
 
         progress_cb(30, "Preparing publish task for the farm")
 
+        thumb_name = os.path.basename(thumbnail_path)
+        new_thumbnail_path = os.path.join("C:\\mnt\\workspace\\tmp\\thumbnails", item["name"] + "_" + thumb_name)
+        shutil.copy2(thumbnail_path, new_thumbnail_path)
+        thumbnail_path = new_thumbnail_path
+
         user = tank.util.get_current_user(self.parent.tank)
         args = aaSubmit.submitApi.create_sgpublish_args(
                 publish_folder,
@@ -322,7 +327,8 @@ class PublishHook(Hook):
                 thumbnail_path,
                 tank_type,
                 sg_task["id"],
-                dependencyPaths=[primary_publish_path]
+                dependencyPaths=[primary_publish_path],
+                deleteThumbnail=True,
                 )
         pub_task = aaSubmit.utils.create_task_with_command(str("Publish " + os.path.basename(publish_path)), args)
 
