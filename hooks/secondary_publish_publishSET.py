@@ -174,7 +174,6 @@ class PublishHook(Hook):
             # publish maya camera output
             elif output["name"] == "mayacamera_export":
                 try:
-                    print "made it here - publish maya camera output"
                     self.__publish_mayacamera(item, output, work_template, primary_publish_path,
                                                          sg_task, comment, thumbnail_path, progress_cb)
                 except Exception, e:
@@ -183,7 +182,6 @@ class PublishHook(Hook):
             # publish alembic camera output
             elif output["name"] == "alembiccamera_export":
                 try:
-                    print "made it here - publish alembic camera output"
                     self.__publish_alembiccamera(item, output, work_template, primary_publish_path,
                                                          sg_task, comment, thumbnail_path, progress_cb)
                 except Exception, e:
