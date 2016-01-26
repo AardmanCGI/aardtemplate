@@ -853,10 +853,6 @@ frameworks:
     hook_publish: default
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
       version: v0.0.5}
-  tk-framework-aapublish_v0.1.x:
-    hook_publish: default
-    location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.1.4}
   tk-framework-aapublish_v0.2.x:
     hook_publish: default
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
