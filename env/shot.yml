@@ -94,7 +94,7 @@ frameworks:
   tk-framework-aapublish_v0.2.x:
     hook_publish: default
     location: {path: 'https://github.com/AardmanCGI/tk-framework-aapublish.git', type: git,
-      version: v0.2.4}
+      version: v0.2.5}
   tk-framework-widget_v0.1.18:
     location: {name: tk-framework-widget, type: app_store, version: v0.1.18}
 includes: [./includes/app_launchers.yml, ./includes/common_apps.yml]
