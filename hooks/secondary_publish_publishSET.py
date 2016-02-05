@@ -499,8 +499,8 @@ class PublishHook(Hook):
         try:
             # do it
             self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
-                                   % ( publish_path, start_frame, end_frame ) )
-            aaPCGen.doExport(publish_path,start_frame,end_frame)
+                                   % ( publish_path, frame_start, frame_end ) )
+            aaPCGen.doExport(publish_path,frame_start,frame_end)
         except Exception, e:
             raise TankError("Failed to export GeoCache: %s" % e)
 
