@@ -310,6 +310,17 @@ class PublishHook(Hook):
 
         job_string = ";".join(alembic_args)
 
+        # TODO: Remove once attribute caching to alembic works
+        try:
+            attr_cache_folder = publish_path[:-4] # Strip .abc
+            self.parent.ensure_folder_exists(attr_cache_folder)
+            # do it
+            self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
+                                   % (attr_cache_folder, start_frame, end_frame ) )
+            aaPCGen.doExport(attr_cache_folder,start_frame,end_frame)
+        except Exception, e:
+            raise TankError("Failed to export AttributeCache: %s" % e)
+
         progress_cb(30, "Preparing publish task for the farm")
 
         thumb_name = os.path.basename(thumbnail_path)
@@ -487,6 +498,13 @@ class PublishHook(Hook):
 
         # run the command:
         progress_cb(30, "Exporting GeoCache")
+        try:
+            # do it
+            self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
+                                   % ( publish_path, start_frame, end_frame ) )
+            aaPCGen.doExport(publish_path,start_frame,end_frame)
+        except Exception, e:
+            raise TankError("Failed to export GeoCache: %s" % e)
 
         geo_export_cmd = 'doCreateGeometryCache 6 {{ "0", "{}", "{}", "OneFile", "0", "{}/{}", "1", "", "0", "export", "0", "1", "1", "0", "1", "mcc", "1" }} ;'.format(frame_start, frame_end, geo_publish_path, namespace)
         try:
