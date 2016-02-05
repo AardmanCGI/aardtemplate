@@ -312,12 +312,10 @@ class PublishHook(Hook):
 
         # TODO: Remove once attribute caching to alembic works
         try:
-            attr_cache_folder = publish_path[:-4] # Strip .abc
-            self.parent.ensure_folder_exists(attr_cache_folder)
             # do it
             self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
-                                   % (attr_cache_folder, start_frame, end_frame ) )
-            aaPCGen.doExport(attr_cache_folder,start_frame,end_frame)
+                                   % (publish_folder, start_frame, end_frame ) )
+            aaPCGen.doExport(publish_folder,start_frame,end_frame)
         except Exception, e:
             raise TankError("Failed to export AttributeCache: %s" % e)
 
