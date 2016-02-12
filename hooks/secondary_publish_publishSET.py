@@ -284,8 +284,8 @@ class PublishHook(Hook):
         progress_cb(10, "Analysing scene")
 
         alembic_args = [
-                "normals=0",
-                "uvs=0",
+                "normals=1",
+                "uvs=1",
                 "facesets=0",
                 "useinitshadgrp=0",
                 "dynamictopology=0",
