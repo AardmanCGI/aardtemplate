@@ -20,6 +20,8 @@ from tank import TankError
 
 from aaCaching import aaPublishedCacheGenerate as aaPCGen
 reload(aaPCGen)
+from aaCaching.aaAttrCaching import aaAttributeCaching as aac
+reload(aac)
 
 import aaSubmit.submitApi
 import aaSubmit.utils
@@ -306,18 +308,14 @@ class PublishHook(Hook):
         alembic_args.append("filename=%s" % publish_path.replace("\\", "/"))
 
         cache_set = item["name"] + ':cache_SET'
-        alembic_args.append("objects=" + ','.join(cmds.sets(cache_set, q=True)))
+        objects = cmds.sets(cache_set, q=True)
+        alembic_args.append("objects=" + ','.join(objects))
+
+        attributes = set(attr for obj in objects for attr in (aac.getCacheableAttrs(str(obj)) or []))
+        if attributes:
+            alembic_args.append("userattrs=" + ','.join(attributes))
 
         job_string = ";".join(alembic_args)
-
-        # TODO: Remove once attribute caching to alembic works
-        try:
-            # do it
-            self.parent.log_debug("Executing command: aaPCGen.doExport(%s,%s,%s)"\
-                                   % (publish_folder, start_frame, end_frame ) )
-            aaPCGen.doExport(publish_folder,start_frame,end_frame)
-        except Exception, e:
-            raise TankError("Failed to export AttributeCache: %s" % e)
 
         progress_cb(30, "Preparing publish task for the farm")
 
