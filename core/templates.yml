@@ -262,27 +262,27 @@ paths:
     #
 
     # The location of WIP script files
-    nuke_shot_work: '@shot_root/{Step}/wip/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.nk'
+    nuke_shot_work: '@shot_root/{Step}/wip/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}.nk'
 
     # The location of backups of WIP files
-    nuke_shot_snapshot: '@shot_root/{Step}/wip/{name}/snapshots/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}-{timestamp}.nk'
+    nuke_shot_snapshot: '@shot_root/{Step}/wip/{name}/snapshots/{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}-{timestamp}.nk'
 
     # The location of published nuke script files
     nuke_shot_publish: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.nk'
 
     # write node outputs
-    nuke_shot_render_mono_dpx:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-    nuke_shot_render_pub_mono_dpx: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
-    nuke_shot_render_mono_tif:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-    nuke_shot_render_pub_mono_tif: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
-    nuke_shot_render_jpeg:         '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-    nuke_shot_render_pub_jpeg:     '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
-    nuke_shot_render_stereo:       '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
-    nuke_shot_render_pub_stereo:   '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
+    nuke_shot_render_mono_dpx:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_shot_render_pub_mono_dpx: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.dpx'
+    nuke_shot_render_mono_tif:     '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_shot_render_pub_mono_tif: '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.tif'
+    nuke_shot_render_jpeg:         '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_shot_render_pub_jpeg:     '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.jpg'
+    nuke_shot_render_stereo:       '@shot_root/render/wip/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
+    nuke_shot_render_pub_stereo:   '@shot_root/render/pub/cp/{Step}/{name}/v{nuke_cp_version}/[{output}/]{project}-{Sequence}-{Shot}_{name}-{Step}_{eye}_v{version}[_{output}]_cp_v{nuke_cp_version}.{SEQ}.exr'
 
     # review output
     shot_quicktime_quick:          '@shot_root/{Step}/review/quickdaily/{project}-{Sequence}-{Shot}_{name}-{Step}_{iteration}.mov'
-    nuke_shot_render_movie:        '@shot_root/{Step}/review/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_{output}.mov'
+    nuke_shot_render_movie:        '@shot_root/{Step}/review/{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}_{output}.mov'
 
     #
     # Houdini

@@ -438,7 +438,7 @@ engines:
       tk-multi-about: '@about'
       tk-multi-breakdown:
         hook_scene_operations: '{self}/tk-nuke_scene_operations.py'
-        location: {name: tk-multi-breakdown, type: app_store, version: v1.3.1}
+        location: {name: tk-multi-breakdown, type: app_store, version: v1.4.3}
       tk-multi-imagepublish-footage:
         app_mode: gui
         hook_publish: default
@@ -504,7 +504,7 @@ engines:
           - [project, is, '{context.project}']
           hierarchy: [entity, content]
         filter_publishes_hook: '{self}/filter_publishes.py'
-        location: {name: tk-multi-loader2, type: app_store, version: v1.9.1}
+        location: {name: tk-multi-loader2, type: app_store, version: v1.10.4}
         menu_name: Load
         publish_filters: []
         title_name: Loader
@@ -520,7 +520,7 @@ engines:
         hook_secondary_pre_publish: default
         hook_secondary_publish: default
         hook_thumbnail: default
-        location: {name: tk-multi-publish, type: app_store, version: v0.7.4}
+        location: {name: tk-multi-publish, type: app_store, version: v0.8.7}
         primary_description: Publishes and versions up the current Nuke script.
         primary_display_name: Nuke Publish
         primary_icon: icons/publish_nuke_main.png
@@ -543,7 +543,7 @@ engines:
         version_number_padding: 3
       tk-multi-reviewsubmission:
         codec_settings_hook: '{self}/codec_settings.py'
-        location: {name: tk-multi-reviewsubmission, type: app_store, version: v0.2.0}
+        location: {name: tk-multi-reviewsubmission, type: app_store, version: v0.3.0}
         movie_height: 540
         movie_path_template: nuke_asset_render_movie
         movie_width: 1024
@@ -554,14 +554,14 @@ engines:
         version_number_padding: 3
       tk-multi-screeningroom: '@launch_screeningroom'
       tk-multi-setframerange:
-        location: {name: tk-multi-setframerange, type: app_store, version: v0.2.4}
+        location: {name: tk-multi-setframerange, type: app_store, version: v0.3.0}
         sg_in_frame_field: sg_working_in
         sg_out_frame_field: sg_working_out
       tk-multi-snapshot:
         hook_copy_file: default
         hook_scene_operation: default
         hook_thumbnail: default
-        location: {name: tk-multi-snapshot, type: app_store, version: v0.5.2}
+        location: {name: tk-multi-snapshot, type: app_store, version: v0.6.1}
         template_snapshot: nuke_asset_snapshot
         template_work: nuke_asset_work
       tk-multi-syncsettings:
@@ -582,7 +582,7 @@ engines:
         hook_scene_operation: default
         launch_at_startup: true
         launch_change_work_area_at_startup: false
-        location: {name: tk-multi-workfiles, type: app_store, version: v0.6.17}
+        location: {name: tk-multi-workfiles, type: app_store, version: v0.7.0}
         saveas_default_name: master
         saveas_prefer_version_up: false
         sg_entity_type_extra_display_fields: {}
@@ -599,14 +599,14 @@ engines:
         codec_settings_hook: '{self}/codec_settings.py'
         current_scene_template: nuke_asset_work
         height: 768
-        location: {name: tk-nuke-quickdailies, type: app_store, version: v0.2.0}
+        location: {name: tk-nuke-quickdailies, type: app_store, version: v0.3.0}
         movie_template: asset_quicktime_quick
         post_hooks: [snapshot_history_post_quickdaily]
         sg_version_name_template: nuke_quick_asset_version_name
         upload_movie: false
         width: 1024
       tk-nuke-writenode:
-        location: {name: tk-nuke-writenode, type: app_store, version: v1.0.18}
+        location: {name: tk-nuke-writenode, type: app_store, version: v1.1.1}
         template_script_work: nuke_asset_work
         write_nodes:
         - file_type: tiff
@@ -663,7 +663,7 @@ engines:
     compatibility_dialog_min_version: 10
     debug_logging: false
     favourite_directories: []
-    location: {name: tk-nuke, type: app_store, version: v0.4.1}
+    location: {name: tk-nuke, type: app_store, version: v0.5.4}
     menu_favourites:
     - {app_instance: tk-multi-workfiles, name: Shotgun File Manager...}
     - {app_instance: tk-multi-snapshot, name: Snapshot...}

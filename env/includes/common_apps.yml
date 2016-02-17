@@ -1,5 +1,5 @@
 about:
-  location: {name: tk-multi-about, type: app_store, version: v0.1.20}
+  location: {name: tk-multi-about, type: app_store, version: v0.2.0}
 frameworks:
   tk-framework-qtwidgets_v1.x.x:
     location: {name: tk-framework-qtwidgets, type: app_store, version: v1.0.3}
@@ -28,7 +28,7 @@ workfiles:
   hook_scene_operation: default
   launch_at_startup: false
   launch_change_work_area_at_startup: false
-  location: {name: tk-multi-workfiles, type: app_store, version: v0.6.17}
+  location: {name: tk-multi-workfiles, type: app_store, version: v0.7.0}
   saveas_default_name: master
   saveas_prefer_version_up: false
   sg_entity_type_extra_display_fields:
@@ -74,7 +74,7 @@ workfiles-launch-at-startup-nuke:
   hook_scene_operation: workfiles_scene_operation_tk-nuke
   launch_at_startup: true
   launch_change_work_area_at_startup: true
-  location: {name: tk-multi-workfiles, type: app_store, version: v0.6.17}
+  location: {name: tk-multi-workfiles, type: app_store, version: v0.7.0}
   saveas_default_name: master
   saveas_prefer_version_up: false
   sg_entity_type_extra_display_fields:
