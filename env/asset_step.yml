@@ -341,7 +341,7 @@ engines:
         hook_scan_scene: default
         hook_submit: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-renderfarm.git',
-          type: git, version: v0.1.7}
+          type: git, version: v0.2.0}
         outputs:
         - {description: Layers to include in render to farm, display_group: Layers,
           display_name: Render layers, icon: icons/publish_maya_main.png, name: render_layer,
@@ -535,7 +535,7 @@ engines:
         hook_scan_scene: default
         hook_submit: default
         location: {path: 'https://github.com/AardmanCGI/tk-multi-renderfarm.git',
-          type: git, version: v0.1.7}
+          type: git, version: v0.2.0}
         outputs:
         - {description: Send Nuke renders to the farm, display_group: Shotgun Write
             Nodes, display_name: Nuke Renders, icon: icons/publish_nuke_writenode.png,
