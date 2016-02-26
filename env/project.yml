@@ -40,7 +40,7 @@ engines:
         version_number_padding: 3
       tk-multi-renderviewer:
         location: {path: 'https://github.com/AardmanCGI/tk-multi-renderviewer.git',
-          type: git, version: v1.0.4}
+          type: git, version: v1.0.4b}
         version_number_padding: 3
       tk-multi-launchmari: '@launch_mari'
       tk-multi-launchmaya: '@launch_maya'
