@@ -73,6 +73,18 @@ class BreakdownSceneOperations(Hook):
 
             refs.append( {"node": cache_node, "type": "cacheFile", "path": path})
 
+        # Alembic cache nodes!
+        alembic_nodes = {}
+        # Ensure later nodes overwrite the old ones
+        alembic_file_nodes = cmds.ls(l=True, type="ExocortexAlembicFile")
+        alembic_file_nodes.sort(key=(lambda node: int(filter(str.isdigit, str(node)))))
+        for alembic_node in alembic_file_nodes:
+            path = cmds.getAttr("%s.fileName" % alembic_node).replace("/", os.path.sep)
+            # Ignore old AlembicFile nodes
+            alembic_nodes[os.path.basename(path)] = {"node": alembic_node, "type": "alembic", "path": path}
+
+        for ref in alembic_nodes.itervalues():
+            refs.append(ref)
 
         print "REFFFSSS", refs
         return refs
@@ -118,3 +130,9 @@ class BreakdownSceneOperations(Hook):
                 # append the asset name (taken from current path) to the new path
                 new_path = new_path + cachePath[len(new_path):]
                 cmds.setAttr("%s.cachePath" %node, new_path, type="string")
+            elif node_type == "alembic":
+                try:
+                    cmds.ExocortexAlembic_import(j="filename=" + new_path + ";normals=0;uvs=0;facesets=0;attachToExisting=1;overXforms=0;overDeforms=0;")
+                except RuntimeError:
+                    import traceback
+                    pm.warning(traceback.format_exc())
