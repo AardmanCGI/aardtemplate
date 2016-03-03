@@ -1,0 +1,13 @@
+################################################################################
+# PROJECT CONFIG FILE
+# use this file to set project wide value for various configurable settings
+# to enable a setting, remove the '#' comment and change the value as desired
+################################################################################
+
+#toolsVersion: '0.1.0'
+#appVersions:
+#    Nuke: '9.0v7'
+#    Maya: '2016_SP2'
+#pluginLoadBools:
+#    Furnace: True
+#    Yeti: False

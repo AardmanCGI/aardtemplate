@@ -535,16 +535,6 @@ engines:
         template_work: nuke_shot_work
         template_work_area: shot_work_area
         version_compare_ignore_fields: []
-      tk-nuke-quickdailies:
-        codec_settings_hook: '{self}/codec_settings.py'
-        current_scene_template: nuke_shot_work
-        height: 768
-        location: {name: tk-nuke-quickdailies, type: app_store, version: v0.3.0}
-        movie_template: shot_quicktime_quick
-        post_hooks: [snapshot_history_post_quickdaily]
-        sg_version_name_template: nuke_quick_shot_version_name
-        upload_movie: false
-        width: 1024
       tk-nuke-writenode:
         location: {name: tk-nuke-writenode, type: app_store, version: v1.1.1}
         template_script_work: nuke_shot_work
@@ -711,19 +701,6 @@ engines:
         template_work: hiero_project_work
         template_work_area: hiero_project_work_area
         version_compare_ignore_fields: []
-      tk-nuke-quickdailies:
-        current_scene_template: nuke_shot_work
-        height: 768
-        location:
-          version: v0.3.0
-          type: app_store
-          name: tk-nuke-quickdailies
-        movie_template: shot_quicktime_quick
-        post_hooks: [snapshot_history_post_quickdaily]
-        sg_version_name_template: nuke_quick_shot_version_name
-        width: 1024
-        upload_movie: false
-        codec_settings_hook: '{self}/codec_settings.py'
       tk-nuke-writenode:
         location:
           version: v1.1.1

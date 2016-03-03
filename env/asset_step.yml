@@ -541,17 +541,6 @@ engines:
             Nodes, display_name: Nuke Renders, icon: icons/publish_nuke_writenode.png,
           name: nuke_render, required: false, selected: true}
         version_number_padding: 3
-      tk-multi-reviewsubmission:
-        codec_settings_hook: '{self}/codec_settings.py'
-        location: {name: tk-multi-reviewsubmission, type: app_store, version: v0.3.0}
-        movie_height: 540
-        movie_path_template: nuke_asset_render_movie
-        movie_width: 1024
-        new_version_status: rev
-        slate_logo: icons/review_submit_logo.png
-        store_on_disk: true
-        upload_to_shotgun: true
-        version_number_padding: 3
       tk-multi-screeningroom: '@launch_screeningroom'
       tk-multi-setframerange:
         location: {name: tk-multi-setframerange, type: app_store, version: v0.3.0}
@@ -595,16 +584,6 @@ engines:
         template_work: nuke_asset_work
         template_work_area: asset_work_area
         version_compare_ignore_fields: []
-      tk-nuke-quickdailies:
-        codec_settings_hook: '{self}/codec_settings.py'
-        current_scene_template: nuke_asset_work
-        height: 768
-        location: {name: tk-nuke-quickdailies, type: app_store, version: v0.3.0}
-        movie_template: asset_quicktime_quick
-        post_hooks: [snapshot_history_post_quickdaily]
-        sg_version_name_template: nuke_quick_asset_version_name
-        upload_movie: false
-        width: 1024
       tk-nuke-writenode:
         location: {name: tk-nuke-writenode, type: app_store, version: v1.1.1}
         template_script_work: nuke_asset_work

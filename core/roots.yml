@@ -1,1 +1,18 @@
-primary: {linux_path: /mnt/work/projects, mac_path: null, windows_path: 'C:\mnt\workspace\projects'}
+# this file defines all the different disk locations that this config uses.
+# these paths can be altered at project creation time to ensure that they map
+# to the correct location.
+#
+# in this setup we have two roots; one for images (renders/footage) and one
+# for workfiles.
+
+primary:
+    description: "A top-level root folder where workfiles live for both shots and assets"
+    linux_path: null
+    mac_path: null
+    windows_path: 'C:\mnt\workspace\projects'
+
+secondary:
+    description: "A top-level root folder where images live for both shots and assets"
+    linux_path: null
+    mac_path: null
+    windows_path: 'C:\mnt\images\projects'
