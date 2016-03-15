@@ -82,7 +82,7 @@ softimage_linux: XSI
 #
 # z-brush
 #
-zbrush_windows: 'C:\mnt\software\apps\win32\pixologic\ZBrush 4R7 FL\ZBrush.exe'
+zbrush_windows: 'C:\mnt\software\apps\win32\pixologic\ZBrush 4R7 FL\ZBrush64.exe'
 zbrush_icon_windows: 'C:\mnt\software\apps\icons\ZBrush_130_256x256.png'
 
 
