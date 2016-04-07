@@ -250,7 +250,7 @@ paths:
     photoshop_shot_publish:
        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.psd'
        root_name: 'primary'
-    photoshop_shot_publish_tif: 
+    photoshop_shot_publish_tif:
        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}.tif'
        root_name: 'primary'
     photoshop_shot_publish_layer:
@@ -278,12 +278,12 @@ paths:
        root_name: 'primary'
 
     # The locations for playblasts from maya
-    maya_shot_playblast_wip_mov: 
+    maya_shot_playblast_wip_mov:
        definition: '@shot_root/render/wip/pb/{Step}/{name}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}_pb[_v{maya_pb_version}].mov'
        root_name: 'secondary'
 
     # The location of exported obj files from maya
-    maya_shot_publish_obj: 
+    maya_shot_publish_obj:
        definition: '@shot_root/{Step}/pub/{name}/{version}/{project}-{Sequence}-{Shot}_{name}-{Step}_{version}.obj'
        root_name: 'primary'
 
@@ -310,7 +310,7 @@ paths:
     nuke_shot_snapshot:
        definition: '@shot_root/{Step}/wip/{name}/snapshots/{project}-{Sequence}-{Shot}_{name}-{Step}_v{version}-{timestamp}.nk'
        root_name: 'primary'
-       
+
 
     # The location of published nuke script files
     nuke_shot_publish:
@@ -397,6 +397,18 @@ paths:
         root_name: 'primary'
 
     # define the location of a publish area
+    asset_publish_area:
+        definition: '@asset_root/{Step}/pub'
+        root_name: 'primary'
+    # The location of render/comp directories (used by aapublish/utils/shotgun.py)
+    asset_wip_render_dir:
+        definition: '@asset_root/render/wip[/{render_type}][/{Step}][/{name}][/v{version}][/{layer1}][/{layer2}]'
+        root_name: 'secondary'
+    asset_pub_render_dir:
+        definition: '@asset_root/render/pub[/{render_type}][/{Step}][/{name}][/v{version}]'
+        root_name: 'secondary'
+
+    # define the location of a publish area
 
     asset_publish_footage:
         definition: '@asset_root/footage/{name}/{project}-{sg_asset_type}-{Asset}_{name}_[v{version}]'
@@ -436,14 +448,14 @@ paths:
         definition: '@asset_root/{Step}/pub/{name}/v{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{layer}.tif'
         root_name: 'primary'
 
- 
+
     #
     # Mari
     #
     asset_mari_texture_tif:
         definition: '@asset_root/{Step}/pub/{name}/{version}/{project}-{sg_asset_type}-{Asset}_{name}-{Step}_{mari.channel}[_{mari.layer}].{UDIM}.tif'
         root_name: 'primary'
- 
+
     #
     # Maya
     #
