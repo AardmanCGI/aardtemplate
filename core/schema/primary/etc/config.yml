@@ -4,7 +4,7 @@
 # to enable a setting, remove the '#' comment and change the value as desired
 ################################################################################
 
-#toolsVersion: '0.1.0'
+toolsVersion: '1.1.91'
 #appVersions:
 #    Nuke: '9.0v7'
 #    Maya: '2016_SP2'
