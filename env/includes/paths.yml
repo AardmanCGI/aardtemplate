@@ -16,14 +16,14 @@
 #
 # maya
 #
-maya_windows: 'C:\mnt\software\tools\current\1.1.91\maya.pyw'
+maya_windows: 'C:\mnt\software\tools\1.1.91\wrappers\maya.pyw'
 maya_mac: /Applications/Autodesk/maya2012/Maya.app
 maya_linux: maya
 
 #
 # mari
 #
-mari_windows: 'C:\mnt\software\tools\current\1.1.91\mari.pyw'
+mari_windows: 'C:\mnt\software\tools\1.1.91\wrappers\mari.pyw'
 mari_mac: /Applications/MariVER/MariVER.app
 mari_linux: mari
 
@@ -31,7 +31,7 @@ mari_linux: mari
 # nuke
 #
 nuke_mac: /Applications/Nuke6.3v8/Nuke6.3v8.app
-nuke_windows: 'C:\mnt\software\tools\current\1.1.91\nuke.pyw'
+nuke_windows: 'C:\mnt\software\tools\1.1.91\wrappers\nuke.pyw'
 nuke_linux: Nuke6.3
 
 
@@ -100,7 +100,7 @@ aftereffects_windows: 'C:\Program Files\Adobe\Adobe After Effects CC\Support Fil
 # Tweak RV
 #
 rv_mac: /Applications/RV64.app
-rv_windows: 'C:\mnt\software\tools\current\1.1.91\rv.pyw'
+rv_windows: 'C:\mnt\software\tools\1.1.91\wrappers\rv.pyw'
 #rv_windows: 'C:\Python27\python.exe'
 rv_linux: rv
 rv_icon_windows: 'C:\mnt\software\apps\icons\rv_IDI_ICON1_48x48.png'
@@ -109,11 +109,11 @@ rv_icon_windows: 'C:\mnt\software\apps\icons\rv_IDI_ICON1_48x48.png'
 #
 # PFTrack
 #
-pftrack_windows: 'C:\mnt\software\tools\current\1.1.91\pftrack.pyw'
+pftrack_windows: 'C:\mnt\software\tools\1.1.91\wrappers\pftrack.pyw'
 pftrack_icon_windows: 'C:\mnt\software\apps\icons\PFTrack_101_48x48.png'
 
 #
 # TopoGun
 #
-topogun_windows: 'C:\mnt\software\tools\current\1.1.91\topogun.pyw'
+topogun_windows: 'C:\mnt\software\tools\1.1.91\wrappers\topogun.pyw'
 topogun_icon_windows: 'C:\mnt\software\apps\icons\topogun_48x48.png'
